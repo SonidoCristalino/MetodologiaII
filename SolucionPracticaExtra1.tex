@@ -1,0 +1,222 @@
+\documentclass[10pt, spanish]{article}
+
+\usepackage{geometry} %Necesario para poder equiparar los márgenes
+ \geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+     top=20mm,
+}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{listings}
+\usepackage{color}
+
+\lstloadlanguages{C,C++,csh,Java}
+
+\definecolor{red}{rgb}{0.6,0,0}
+\definecolor{blue}{rgb}{0,0,0.6}
+\definecolor{green}{rgb}{0,0.8,0}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{cloudwhite}{rgb}{0.9412, 0.9608, 0.8471}
+
+\lstset{
+    language=csh,
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    tabsize=2,
+    extendedchars=true,
+    breaklines=true,
+    frame=b,
+    stringstyle=\color{blue}\ttfamily,
+    showspaces=false,
+    showtabs=false,
+    xleftmargin=17pt,
+    framexleftmargin=17pt,
+    framexrightmargin=5pt,
+    framexbottommargin=4pt,
+    commentstyle=\color{green},
+    morecomment=[l]{//}, %use comment-line-style!
+    morecomment=[s]{/*}{*/}, %for multiline comments
+    showstringspaces=false,
+    morekeywords={ abstract, event, new, struct,
+    as, explicit, null, switch,
+    base, extern, object, this,
+    bool, false, operator, throw,
+    break, finally, out, true,
+    byte, fixed, override, try,
+    case, float, params, typeof,
+    catch, for, private, uint,
+    char, foreach, protected, ulong,
+    checked, goto, public, unchecked,
+    class, if, readonly, unsafe,
+    const, implicit, ref, ushort,
+    continue, in, return, using,
+    decimal, int, sbyte, virtual,
+    default, interface, sealed, volatile,
+    delegate, internal, short, void,
+    do, is, sizeof, while,
+    double, lock, stackalloc,
+    else, long, static,
+    enum, namespace, string},
+    keywordstyle=\color{cyan},
+    identifierstyle=\color{red},
+    backgroundcolor=\color{cloudwhite},
+}
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{blue}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+
+\author{Emiliano Salvatori}
+\title{Metodología de la programación II \\
+    \large Practica Extra I}
+\date{Agosto 2019}
+\pagestyle{headings}
+
+\begin{document}
+\maketitle
+
+
+% ----------------------------------------------------------------------
+%                       Comienzo del documento
+% ----------------------------------------------------------------------
+\section{Practica 1}
+
+\subsection{Listar las clases de objetos que puede encontrar en los siguientes lugares y amar una jerarquía de clases en
+cada caso:}
+
+    \begin{itemize}
+        \item
+            Una oficina
+        \item
+            Una estación de servicio
+        \item
+            Un cine
+    \end{itemize}
+
+\emph{Una oficina}:
+
+\begin{itemize}
+    \item
+        Empleados Administrativos
+    \item
+        Muebles de oficina
+    \item
+        Personas
+    \item
+        Computadoras
+    \item
+        Personas
+    \item
+        Empleados de limpieza
+    \item
+        Jefes
+    \item
+        Escritorios
+    \item
+        Útiles escolares
+\end{itemize}
+
+\emph{Una estación de servicio}:
+
+\begin{itemize}
+    \item
+        Personas
+    \item
+        Clientes
+    \item
+        Personal de limpieza
+    \item
+        Personal de mostrador
+    \item
+        Autos
+    \item
+        Kiosco
+    \item
+        Articulos de consumo
+    \item
+        Cocina
+    \item
+        Dispenser de nafta
+    \item
+        Vehículos
+    \item
+        Proveedores
+    \item
+        Sala de estar
+\end{itemize}
+
+\emph{Un cine}:
+
+\begin{itemize}
+    \item
+        Personas
+    \item
+        Clientes
+    \item
+        Empleados de limpieza
+    \item
+        Empleados de mostrador
+    \item
+        Sala de proyección
+    \item
+        Kiosco
+    \item
+        Productos alimenticios
+    \item
+        Sala de venta de tickets
+\end{itemize}
+
+%Acá iria la imagen del diagrama de clases
+
+
+\subsection{Dar un ejemplo de jerarquía de herencia orientada a objetos, donde cada nivel es una forma más especial del
+precedente. Dar otro ejemplo de jerarquía de la vida real que NO cumpla con la relación de herencia}.
+
+\subsection{ Realizar el diagrama de Clases correspondiente a las clases Persona, Empleado, Empleado Administrativo y
+Técnico. Los datos relevantes de una persona son: nombre, DNI, dirección, año de nacimiento y sexo. Un empleado es una
+persona que desempeña una función en alguna empresa y recibe un salario por ello. Un técnico es un empleado que posee un
+título y trabaja por contrato.  Los empleados administrativos reciben su salario de acuerdo a la categoría y antiguedad
+que posean}.
+
+\subsection{Realizar el diagrama de clases correspondiente a las clases CuentaBancaria, CajaDeAhorro y CuentaCorriente,
+estas últimas consideradas como subclases de CuentaBancaria. Las cajas de ahorro tienen un límite máximo de extracciones
+mensuales (igual para todas) y no permiten giros en descubierto. Las cuentas corrientes permiten retiros en descubierto
+pero hasta un cierto límite}.
+
+\subsection{Modele gráficamente mediante un diagrama de secuencia la serie de pasos a seguir para que un cliente
+extraiga dinero de su cuenta bancaria en el banco.  Para realizar la operación el cliente indica la operación a realizar
+y el monto de la misma. Con esta información, el banco busca la cuenta con el número ingresado, y lleva a cabo la
+operación. Esto implicará actualizar el saldo de la cuenta. Nota: tenga en cuenta que el banco va a interactuar con un
+objeto ¿tabla¿ que contiene todas sus cuentas. Identifique los mensajes que puede recibir ese objeto ''tabla''}
+
+\subsection{Se pretende modelar la serie de pasos a seguir para que un cliente extraiga dinero de su cuenta de ahorro en
+el banco, a través de un cajero automático.  Para interactuar con el cajero el cliente utiliza su tarjeta e indica la
+operación a realizar y el monto de la misma, en caso de ser necesario. Las operaciones posibles son extracción, depósito
+y saldo.  Con esta información, el cajero pide al banco que se ocupe de realizar la operación.  El banco busca la cuenta
+con el número ingresado, y lleva a cabo la operación. Esto implicará actualizar el saldo de la cuenta.  Luego de cada
+operación el cajero imprime un ticket.  Suponga que no existen condiciones que impidan que una operación se lleve a
+cabo}
+
+\subsection{Modele gráficamente: El hospital ¿Central¿ está organizado de la siguiente forma: el hospital cubre varias
+especialidades médicas (ej: pediatría, oncología, traumatología). Cada especialidad médica cuenta con un grupo de
+médicos que atienden a los pacientes que ingresan al hospital. Por otro lado el hospital tiene habitaciones y salas
+generales para internación. Las habitaciones tienen 2 camas y las salas tienen un número variable de camas}
+
+\emph{Considere el siguiente problema: un paciente ingresa a este hospital.  El paciente trae consigo un diagnóstico y
+debe ser internado. Esto implica que debe primero determinarse si el hospital cubre la especialidad médica que el
+diagnóstico requiere. Luego habrá que buscar una cama libre dando prioridad a las habitaciones, y siguiendo con las
+salas generales (considere que siempre hay alguna cama libre en el hospital, al menos en una sala general). Luego se le
+asigna al paciente un médico responsable de la especialidad que su enfermedad requiere. Siempre habrá algún médico de la
+especialidad que lo pueda antender}
+
+\subsection{}
+\subsection{}
+\subsection{}
+
+\end{document}

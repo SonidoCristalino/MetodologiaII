@@ -1,0 +1,215 @@
+\documentclass[10pt, spanish]{article}
+
+\usepackage{geometry} %Necesario para poder equiparar los márgenes
+ \geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+     top=20mm,
+}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{listings}
+\usepackage{color}
+
+\lstloadlanguages{C,C++,csh,Java}
+
+\definecolor{red}{rgb}{0.6,0,0}
+\definecolor{blue}{rgb}{0,0,0.6}
+\definecolor{green}{rgb}{0,0.8,0}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{cloudwhite}{rgb}{0.9412, 0.9608, 0.8471}
+
+\lstset{
+    language=csh,
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    tabsize=2,
+    extendedchars=true,
+    breaklines=true,
+    frame=b,
+    stringstyle=\color{blue}\ttfamily,
+    showspaces=false,
+    showtabs=false,
+    xleftmargin=17pt,
+    framexleftmargin=17pt,
+    framexrightmargin=5pt,
+    framexbottommargin=4pt,
+    commentstyle=\color{green},
+    morecomment=[l]{//}, %use comment-line-style!
+    morecomment=[s]{/*}{*/}, %for multiline comments
+    showstringspaces=false,
+    morekeywords={ abstract, event, new, struct,
+    as, explicit, null, switch,
+    base, extern, object, this,
+    bool, false, operator, throw,
+    break, finally, out, true,
+    byte, fixed, override, try,
+    case, float, params, typeof,
+    catch, for, private, uint,
+    char, foreach, protected, ulong,
+    checked, goto, public, unchecked,
+    class, if, readonly, unsafe,
+    const, implicit, ref, ushort,
+    continue, in, return, using,
+    decimal, int, sbyte, virtual,
+    default, interface, sealed, volatile,
+    delegate, internal, short, void,
+    do, is, sizeof, while,
+    double, lock, stackalloc,
+    else, long, static,
+    enum, namespace, string},
+    keywordstyle=\color{cyan},
+    identifierstyle=\color{red},
+    backgroundcolor=\color{cloudwhite},
+}
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{blue}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+
+\author{Emiliano Salvatori}
+\title{Metodología de la programación II \\
+    \large Practica I}
+\date{Agosto 2019}
+\pagestyle{headings}
+
+\begin{document}
+\maketitle
+
+
+% ----------------------------------------------------------------------
+%                       INTRODUCION
+% ----------------------------------------------------------------------
+\section{Practica 2}
+
+\subsection*{Metodologías Ágiles}
+
+\subsubsection{Mencione alguna diferencia entre las metodologías tradicionales y la Programación Extrema}
+
+La Programación Extrema a diferencia de las metodologías tradicionales pone más énfasis en la adaptabilidad que en la
+previsibilidad, considerando los cambios de requisitos sobre la marcha son un aspecto natural, inevitable e incluso
+deseable del desarrollo de proyectos.
+
+\footnote{https://es.ryte.com/wiki/Desarrollo\textbackslash{}\%C3\%81gil\textbackslash{}de\textbackslash{}Software}
+
+\subsubsection{¿Cuáles son las fases de la metodología XP?}
+
+Las fases de la Programación Extrema son 4: Exploración, Planificación, Iteraciones y Producción.
+
+\subsubsection{¿Qué es una historia de Usuario?}
+
+Estas ''historias'' son escritas por el cliente, en su propio lenguaje, como descripciones cortas de lo que el sistema
+debe realizar. La diferencia más importante entre estas historias y los tradicionales documentos de especificación
+funcional se encuentra en el nivel de detalle requerido.  Las historias de usuario deben tener el detalle mínimo como
+para que los programadores puedan realizar una estimación poco riesgosa del tiempo que llevará su desarrollo.
+
+\subsubsection{¿Cuánto dura la fase de exploración?}
+
+Esta fase suela durar un par de semanas y el resultado es una visión general del sistema y un plazo total estimado.
+
+\subsubsection{¿Qué tareas desarrollan en la fase de planificación?}
+
+Es una fase corta, en la cual el cliente, los gerentes y el grupo de desarrolladores acuerdan el orden en que deberán
+implementarse las historias de usuario y, asociadas a éstas, las entregas. La duración de esta suele durar entre una o
+varias reuniones, y se obtiene como resultado un \emph{Plan de entregas}
+
+\subsubsection{¿De qué forma se determina el progreso de un proyecto?}
+
+Se puede determinar esto en la fase de Iteraciones. Cuando una iteración es terminada sin errores es una medida clara de
+avance.
+
+\subsubsection{¿Cuándo un sistema es enviado a fase de producción?}
+
+Si bien al final de cada iteración se entregan módulos funcionales y sin errores, puede ser deseable por parte del
+cliente no poner el sistema en producción hasta tanto no se tenga la funcionalidad completa.  En esta fase no se
+realizan más desarrollos funcionales, pero pueden ser necesarias tareas de ajuste.
+Cuando llegue el momento de la implementación, los desarrolladores dialogarán directamente con el cliente para obtener
+todos los detalles necesarios.
+
+\subsubsection{¿Qué son los ''spikes''?}
+
+Cuando se obtienen las historias de usuario, los programadores evalúan el tiempo de desarrollo de cada una. Si alguna de
+ellas contiene  \emph{riesgos} que impiden establecer con certeza la complejidad del desarrollo, se realizan pequeños
+programas de prueba o también denominados \emph{''spikes''}, para reducir estos riesgos.
+Por otro lado, en la fase de Diseño, se introducen soluciones de tipo \emph{''spike''} las cuales solamente abordan el
+problema en concreto y se aísla de otro tipo de preocupaciones.
+
+\subsubsection{¿Quiénes son los actores que intervienen en el ''release plan'' y qué significa?}
+
+Los actores que intervienen en una \emph{''Release Plan''} son: los clientes, los desarrolladores y los jefes o gerentes
+del proyecto, cuyo fin es establecer un cronograma de entregas o \emph{''Realease Plan''} en el que estén todos de
+acuerdo.
+
+\subsubsection{¿En qué tres aspectos se diferencian los planes en XP de las metodologías ágiles?}
+
+\subsubsection{¿En cuánto tiempo deben programarse las historias de usuario?}
+
+Las historias de usuario deben poder ser programadas en un tiempo entre una y tres semanas.  Si la estimación es
+superior a tres semanas, debe ser dividida en dos o más historias.  Si es menos de una semana, se debe combinar
+
+\subsubsection{¿Qué es el planning game?}
+
+El ''planning game'' es una reunión donde se establece el cronograma de entregas, es decir, se establece qué historias
+de usuario serán agrupadas para conformar una entrega, y el orden de las mismas.
+Típicamente el cliente ordenará y agrupará según sus prioridades las historias de usuario.  El cronograma de entregas se
+realiza en base a las estimaciones de tiempos de desarrollo realizadas por los desarrolladores.
+
+\subsubsection{¿Cuándo se realizan las pruebas de aceptación?}
+
+Las pruebas de aceptación se realizan en la fase de Iteración, cuando se realiza el plan de iteraciones. Esto se
+desarrolla al comienzo de cada ciclo donde cada Historia de Usuario se traduce en tareas específicas de programación. Y
+para cada Historia de Usuario se establencen las puebras de aceptación.
+Estas pruebas se realizan al final del ciclo en el que se desarrollan, pero también al final de cada uno de los ciclos
+siguientes, para verificar que subsiguientes iteraciones no han afectado a las anteriores.
+
+\subsubsection{¿Cuáles son las características de diseño de la metodología XP?}
+
+La metodología XP hace especial énfasis en los diseños simples y claros.  Los conceptos más importantes de diseño en
+esta metodología son:
+    \begin{itemize}
+        \item
+            \textbf{Simplicidad:} Un diseño simple se implementa más rápidamente que uno complejo. Por eso XP propone
+            implementar el diseño más simple posible que funcione.
+            Características fundamentales del código:
+            \begin{itemize}
+                \item
+                    Testeable
+                \item
+                    Legible
+                \item
+                    Comprensible
+                \item
+                    Explicable
+            \end{itemize}
+        \item
+            \textbf{Metáforas:} La metodología XP sugiere utilizar este concepto como una manera sencilla de explicar el
+            propósito del proyecto, y guiar la estructura y arquitectura del mismo.  Por ejemplo, puede ser una guía
+            para la nomenclatura de los métodos y las clases utilizadas en el diseño del código.Tener nombres claros,
+            que no requieran de mayores explicaciones, redunda en un ahorro de tiempo. Es importante que entre todos
+            utilicen las mismas metáforas para dialogar.
+        \item
+            \textbf{Solución \emph{''Spike''}}: Una solución de este tipo solamente aborda el problema en concreto y se aísla de
+            otro tipo de preocupaciones.
+        \item
+            \textbf{Refactorización:} La recodificación consiste en escribir nuevamente parte del código de un programa, sin
+            cambiar su funcionalidad, a los efectos de hacerlo más simple, conciso y/o entendible.Las metodologías de XP
+            sugieren recodificar cada vez que sea necesario.
+            Si bien puede parecer una pérdida de tiempo innecesaria en el corto plazo, los resultados de esta práctica
+            tienen sus frutos en las siguientes iteraciones, cuando sea necesario ampliar o cambiar la funcionalidad.
+    \end{itemize}
+
+\subsubsection{¿Cuáles son las cuatro variables que define la metodología XP para un proyecto de software?}
+
+Las cuatro variables que define la Programación Extrema son. Costo, Tiempo, Calidad y Alcance.
+Tres de ellas podrán ser fijadas arbitrariamente por actores externos al grupo de desarrolladores: usuarios y jefes de
+proyecto. El valor de la variable restante lo establecerá el equipo de desarrollo, en función de los valores de las
+otras tres. Por ejemplo, si el cliente establece el alcance y la calidad, y el jefe de proyecto el precio, el grupo de
+desarrollo tendrá libertad para determinar el tiempo que durará el proyecto.
+
+\end{document}
+
