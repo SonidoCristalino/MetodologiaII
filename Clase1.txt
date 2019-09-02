@@ -1,0 +1,223 @@
+Lunes virtual 
+Martes de 18 a 22hs = Aula 310
+
+Profesora: Claudia 
+Mail: ccappe2013@gmail.com
+
+Tipos paradigmas que hay en la programación. 
+- Funcional = con aquellas que se pueden reducir a funciones (algo asi)
+- Lógico = relacion con la AI 
+
+1) Se ve practica de POO y luego practica. 
+
+
+Caracteristicas de la POO (esto es un popurri de cosas, pantallazo general):
+Se describe en relacion a los objetos involucrados. 
+
+Un objeto tiene atributos y comportamientos. 
+Objeto Alumno: 
+    Atributo: nombre, legajo, etc
+    Comportamiento: mensajes que puede contestar el objeto ¿cual es el legajo?
+    ¿el nombre? etc. Lo que serian los setters y getters. 
+
+Todo se puede representar como un objeto y con un comportamiento. 
+Cuando se debe construir un sistema se deben dejar fuera muchos objetos. Sólo se
+tienen en cuenta los objetos que son los de software con lo que tiene que ver
+con lo que se debe estar dentro del diseño de la solución. Lo que compete a la
+problematica. Se deben definir los objetos que estarán involucrados en la
+solución. 
+
+Estos objetos se comunican entre si enviandose mensajes. 
+
+Todos los objetos que tienen un mismo comportamiento se agrupan en clases. Se
+representan a traves de la rectangulo. 
+
+ALUMNO (en mayuscula)
+---------------------
+Nombre
+legajo
+promedio            ---> vista interna, vista del implementador, estructura
+                        interna. No es modificado a traves de sus funciones
+                        Esto se llama Encapsulamiento, se encapsula elobjeto
+                        alumno en una clase, el tipo de dato lo que se
+                        encapsula: Alumno, int, etc...
+--------------------
+verNombre
+verlegajo
+verpromedio         ---> Protocolo de Mensajes != Método. 
+--------------------
+
+Encapsulamiento: 
+Esto se llama Encapsulamiento, se encapsula elobjeto
+alumno en una clase, el tipo de dato lo que se
+encapsula: Alumno, int, etc...
+
+Operaciones que permiten manipular esos tipos de datos que se definen en la
+clase. 
+Los tipos de datos pueden ser char, int, double. Los definidos por el usuario:
+string, sino los arrays, los datos abstractos. 
+
+Tipo de datos: valores posibles de esos datos y las operaciones que pueden
+manipular las posibles operaciones para operar los datos. 
+Los datos predefinidos: int, char, double. Al mismo tiempo se definen el
+las operaciones de encapsulamiento: sumar, restar, etc. Se encapsulan
+determinados funciones para determinados tipos de datos. 
+
+TAGS = Estructuras de datos (array, arboles y esas cosas). 
+
+Comportamiento = operaciones para los TAGS. 
+
+Protocolo de Mensajes != Método: Mensajes que entiende el objeto, el método es
+la IMPLEMENTACION del mensaje, de la función en sí. 
+El objeto sólo puede responder al protocolo de mensajes que está definido en su
+clase. 
+Polimorfismo: dos objetos pueden entender un mismo mensaje de manera diferente,
+    porque el método es diferente (la implementacion del mensaje es diferente). 
+
+Cuando se quiere comenzar a realizar las soluciones: 
+1) se definen los objetos
+2) luego ver quién conoce a quién, las relaciones de conocimiento que existen
+entre ellos. Sólo se conocen aquellos objetos que pueden responder mensajes
+según su protocolo de mensajes. 
+
+Delegación de mensaje: cuando un objeto transmite el mismo mensaje entre
+objetos. 
+Autodelegación: cuando el mismo objeto se delega a sí mismo. 
+
+Diagramas de secuencia: diagramas de colaboración en el que se dibuja parar un
+mensaje todos los objetos que intervinieron para responder un mensaje. 
+Un mensaje complejo es por ejemplo: comprar un boleto de avión. 
+
+No todos los objetos estan en el mismo nivel, tienen distintas jeraquías. En
+smalltalk por ejemplo el de arriba de todo se llama OBJECT: 
+                OBJECT
+                /   \
+        clase 1     clase 2  ---> NO es subclase. 
+            /   \   /   \
+
+Es subclase cuando se determina con una representación con un triángulo hacia
+arriba. 
+
+Herencia: 
+Ventaja: aminorar la cantidad de código. Hereda de la superclase. 
+Lenguajes con herencia simple (como Smalltalk), cuando se hereda de una sola. 
+Lenguajes con herencia multiple: cuando heredan de dos o más clases. 
+
+Cuando se debe construir un sistema, se debe: 
+1) se definir los objetos y 
+2) luego ver quién conoce a quién, las relaciones de conocimiento que existen
+entre ellos. 
+Por ejemplo se pude tener distintos tipos de alumnos: los de grado y los de
+postgrado, y eso se llama especialización: 
+
+                        Alumno
+                    /            \
+            AlumnoGrado     AlumnoPostgrado         --> especializacion. 
+
+Cuando se va complejizando el objeto a definir. 
+Cuando dos objetos comparten atributos, entonces esos atributos comunes se
+generalizan en una superclase, y de esa manera se puede construir de abajo para
+arriba del diagrama de clases. 
+                        Alumno      --> clase abstracta
+                    /            \
+            AlumnoGrado     AlumnoPostgrado         
+
+La clase se puede ver como un molde, algo general. 
+Una instancia: es un objeto en particular de la clase. 
+
+Abstracta: 
+                        Persona      --> clase abstracta
+                    /            \
+                Alumno      Profesor
+No se tiene una instancia de las clases, como por ejemplo una superclase
+Persona (de la cual hereda Alumno y Profesor) 
+
+Características de POO: 
+    - el polimosfirmo.
+    - (falta una)
+    - la herencia.
+    - el encapsulamiento. 
+    - Binding dinámico o ligadura. 
+    - ocultamiento de la información ( ocultamiento de la estructura interna). 
+        Python NO tiene ocultamiento. 
+        Ada SI tiene ocultamient. 
+        Pascal NO tiene ocultamiento. 
+        Desde un objeto de afuera NO modifique directamente otro objeto sino a
+        través de sus protocolo de mensajes. 
+
+Binding dinámico o ligadura: 
+    x := 5;
+    Estatico cuando se define en tiempo de compilación (y algo más). 
+    Dinámico cuando se define en la ejecución. 
+        En ambos casos lo define el lenguaje. 
+
+    var x integer;
+    binding entre la variable y el tipo de dato
+        Estatico cuando se define en tiempo de compilación (y algo más). 
+        Dinámico cuando se define en la ejecución. 
+        Depende del lenguaje: 
+            Python es dinámico
+            Smalltalk es dinámico
+            C es estático. Si se define x como entero, no se le puede asignar un
+            número flotante, porque da error. 
+
+Ejemplo: 
+C1 (instancia de caja de ahorro). 
+
+    Ca extraer:500      --> ¿cómo lo interpreta?
+
+                        CtaBancaria
+                        -----------
+                        nroCuenta
+                        titular
+
+                        ----------
+                        Extraer
+                        Depositar
+                        verSaldo
+
+                            |
+                            |
+                            |
+
+                    CajaAhorro  CtaCorriente
+                    ----------  -----------
+
+
+
+                    ----------  -----------
+                    extraer     extraer
+
+Ver que hay dos extraer en dos clases. 
+En POO existe sobrecarga de nombres. 
+
+    ca extraer : 500
+    
+    ca              ----> clase receptor
+    extraer : 500   ---> mensaje va a buscar al clase receptor (ca)
+
+    ligadura entre la clase receptor y el método ---> binding dinámico, porque
+    en compilación no sabe qué tipo de objeto hay que llamar ( si a CajaAhorro o
+            de CtaCorriente)
+
+    Binding dinámico entre la clase receptor y el método asociado al mensaje
+
+    Jerarquías de lenguajes POO que utilizamos: 
+
+                        Alumno
+                        -----------
+                        nroCuenta
+                        ----------
+                        VerNroCuenta
+                        modificarNroCta
+
+    Jerarquía de Lenguajes en POO como se debería implementar: 
+
+                        Alumno
+                        -----------
+                        nroCuenta
+                        ----------
+                        nroCuenta
+                        nroCuenta   --> se sabe por definición que son
+                                        protocolos de mensaje. Que son set and
+                                        setter. 
