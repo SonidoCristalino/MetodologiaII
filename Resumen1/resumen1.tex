@@ -1,0 +1,383 @@
+\documentclass[10pt, spanish]{article}
+
+\usepackage{geometry} %Necesario para poder equiparar los márgenes
+ \geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+     top=20mm,
+}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{listings}
+\usepackage{color}
+
+\lstloadlanguages{C,C++,csh,Java}
+
+\definecolor{red}{rgb}{0.6,0,0}
+\definecolor{blue}{rgb}{0,0,0.6}
+\definecolor{green}{rgb}{0,0.8,0}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{cloudwhite}{rgb}{0.9412, 0.9608, 0.8471}
+
+\lstset{
+    language=csh,
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    tabsize=2,
+    extendedchars=true,
+    breaklines=true,
+    frame=b,
+    stringstyle=\color{blue}\ttfamily,
+    showspaces=false,
+    showtabs=false,
+    xleftmargin=17pt,
+    framexleftmargin=17pt,
+    framexrightmargin=5pt,
+    framexbottommargin=4pt,
+    commentstyle=\color{green},
+    morecomment=[l]{//}, %use comment-line-style!
+    morecomment=[s]{/*}{*/}, %for multiline comments
+    showstringspaces=false,
+    morekeywords={ abstract, event, new, struct,
+    as, explicit, null, switch,
+    base, extern, object, this,
+    bool, false, operator, throw,
+    break, finally, out, true,
+    byte, fixed, override, try,
+    case, float, params, typeof,
+    catch, for, private, uint,
+    char, foreach, protected, ulong,
+    checked, goto, public, unchecked,
+    class, if, readonly, unsafe,
+    const, implicit, ref, ushort,
+    continue, in, return, using,
+    decimal, int, sbyte, virtual,
+    default, interface, sealed, volatile,
+    delegate, internal, short, void,
+    do, is, sizeof, while,
+    double, lock, stackalloc,
+    else, long, static,
+    enum, namespace, string},
+    keywordstyle=\color{cyan},
+    identifierstyle=\color{red},
+    backgroundcolor=\color{cloudwhite},
+}
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{blue}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+
+\author{Emiliano Salvatori}
+\title{Metodología de la Programación II\\
+    \large Resumen Primera Parte}
+\date{Agosto 2019}
+\pagestyle{headings}
+
+\begin{document}
+\maketitle
+
+\section{Clase nº 1}
+
+\subsection{Características de la Programación Orientada a Objetos (pantallazo)}
+
+Es un tipo de programación el cual el sistema de software se describe en relacion a los objetos involucrados.
+
+Un objeto tiene atributos y comportamientos. Por ejemplo:
+
+\textbf{Objeto}: Alumno
+\begin{itemize}
+    \item
+        \emph{Atributo}: nombre, legajo, etc
+    \item
+        \emph{Comportamiento}: mensajes que puede contestar el objeto ¿cual es el legajo?, ¿el nombre? etc. Lo que serian los
+        setters y getters.
+\end{itemize}
+
+Todo se puede representar como un objeto y con un comportamiento.
+
+Cuando se debe construir un sistema se deben dejar fuera muchos objetos. Sólo se
+tienen en cuenta los objetos que son los del sistema de software que se quiere dar solución, con lo que tiene que ver
+con lo que se debe estar dentro del diseño de la solución. Lo que compete a la problematica. Se deben definir los
+objetos que estarán involucrados en la solución.
+
+Los objetos modelados se comunican entre sí enviándose mensajes.
+
+Todos los objetos que tienen un mismo comportamiento se agrupan en clases.
+La clase se puede ver como un molde, algo general.
+
+Para la representación en UML de cada objeto se dibuja mediante un rectángulo. El nombre de la clase en mayúscula. En la
+parte superior del rectángulo se listan sus datos miembro, cuya parte se denomina \emph{vista interna, vista del
+implementador, estructura internta} y que no pueden ser directamente modificados sino es a traves de sus funciones.
+Esto se denomina \emph{encapsulamiento}: se denomina así al ocultamiento del estado, es decir, de los datos miembro de
+un objeto de manera que solo se pueda cambiar mediante las operaciones definidas para ese objeto.
+
+La parte inferior del rectángulo se denomina \emph{Protocolo de Mensajes} que NO se debe confundir con lo que
+conmúnmente se denomina \emph{zona de Métodos}.
+
+Lo que se denominao Protocolo de Mensaje son los mensajes que entiende el objeto, el método es la IMPLEMENTACION del
+mensaje, de la función en sí.  El objeto sólo puede responder al protocolo de mensajes que está definido en su clase.
+
+Cuando se quier construir un sistema, se debe:
+\begin{enumerate}
+    \item
+        Se definir los objetos y
+    \item
+        Luego ver quién conoce a quién, las relaciones de conocimiento que existen entre ellos.
+\end{enumerate}
+
+Por ejemplo se pude tener distintos tipos de alumnos: los de grado y los de postgrado, y eso se denomina
+\emph{especialización}.
+
+La especialización es cuando se va complejizando el objeto a definir.
+Cuando dos objetos comparten atributos, entonces esos atributos comunes se generalizan en una superclase, y de esa
+manera se puede construir de abajo para arriba del diagrama de clases.
+
+Se denomina \emph{instancia} a un objeto particular de la clase.
+
+\emph{Tipo de datos}: valores posibles de los datos, que a su vez condiciona las operaciones posibles que pueden
+manipular estos los datos.
+
+Por ejemplo, los datos predefinidos pueden ser: int, char, double. Al mismo tiempo al elegir el tipo de dato, también se
+definen las operaciones de encapsulamiento: sumar, restar, etc. Se encapsulan determinados funciones para determinados
+tipos de datos.
+
+Se debe tener en cuenta que se denomina \emph{TAGS} a las Estructuras de datos como ser: array, árboles, y demás
+estructuras.
+
+\emph{Polimorfismo}: dos objetos pueden entender un mismo mensaje de manera diferente, porque el método es diferente (la
+implementacion del mensaje es diferente).
+
+\emph{Delegación de mensaje}: cuando un objeto transmite el mismo mensaje entre objetos.
+
+\emph{Autodelegación}: cuando el mismo objeto se delega a sí mismo.
+
+\emph{Herencia}:
+La Ventaja que tiene este tipo de técnicas: aminorar la cantidad de código. La Herencia se produce desde la Superclase
+hacia abajo.
+\emph{Herencia Simple}: Lenguajes con herencia simple (como Smalltalk por ejemplo), se refiere cuando se hereda de una
+sola clase.
+\emph{Herencia Múltiple}: cuando una clase hereda de dos o más superclases.
+
+\subsubsection{Características generales de POO}
+
+Algunas características que se pueden detallar son:
+\begin{itemize}
+    \item
+        El polimosfirmo.
+    \item
+        (falta una)
+    \item
+        La herencia.
+    \item
+        El encapsulamiento.
+    \item
+        Binding dinámico o ligadura.
+    \item
+        Ocultamiento de la información ( ocultamiento de la estructura interna). Es decir, desde un objeto de afuera no
+        modifique directamente otro objeto sino a través de sus protocolo de mensajes.
+
+\end{itemize}
+
+\textbf{Binding dinámico o ligadura}
+\begin{itemize}
+    \item
+        \textbf{Ejemplo}: x := 5;
+    \item
+        \emph{Estatico}: cuando se define en tiempo de compilación (y algo más).
+    \item
+        \emph{Dinámico}: cuando se define en la ejecución.  En ambos casos lo define el lenguaje.
+\end{itemize}
+
+Esto depende del lenguaje:
+Python es dinámico, Smalltalk es dinámico, pero el lenguaje C es estático. Si se define x como entero, no se le puede
+asignar un número flotante, porque da error.
+
+\subsection{Formas de encarar una solución de Software}
+
+Cuando se quiere comenzar a realizar las soluciones:
+
+\begin{enumerate}
+    \item
+        Se definen los objetos
+    \item
+        Luego ver quién conoce a quién, las relaciones de conocimiento que existen entre ellos. Sólo se conocen aquellos
+        objetos que pueden responder mensajes según su protocolo de mensajes.
+\end{enumerate}
+
+En el desarrollo de una solución existen varias formas de representar las relaciones existentes entre objetos. Una de
+ellas son los Diagramas de Clases, como también los Diagramas de Secuencia. Éstos últimos son de colaboración en el que
+se dibuja para un mensaje todos los objetos que intervinieron para responder ese mensaje.
+
+Un mensaje complejo es por ejemplo: comprar un boleto de avión. Para esta operación, intervienen miles de mensajes de
+miles de objetos por lo que se dificulta realizar un Diagrama de Secuencia abarcativo de ese mensaje
+
+\section{Clase nº 2}
+
+\subsection{Metodologías ágiles}
+
+Las Metodologías ágiles son una forma de encarar un proyecto de software con respecto a las tradicionales. Es un
+conjunto de métodos.  Las metodologías ágiles se aplican a proyectos dinámicos.
+
+Estas metodologías al ser sistemas dinamicos que manejan cortos plazos, si se quiere saber lo que se quiere saber lo que
+se haraá en 6 meses, no se puede con respecto a la tradiciconal. ¿Se aplican para cualquier sistema? No. Hay casos en
+los que se siguen requiriendo los tradicionales.
+
+Pero es mucho mas que una técnica ya que involucra un equipo multidisciplinario.
+
+Las tradicionales se aplican cuando los sistemas de software son más estáticos. En las tradicionales se tienen más
+acento en la planificación.
+
+\subsubsection{Historia de las Metodologías ágiles}
+
+Las mismas tienen \emph{Principios son 12} que son super generales. Si uno no se cumple, no se considera ágil, pero no
+se considera si se aplican todas las demas.
+
+Aparecen a partir de los 70, pero la metodología ágil se diseño en el 2001, pero hubo antes algunos esbozos de este tipo
+de prácticas.
+
+En la época de antaño se invertía mucho tiempo en la planificación y en la documentación, diagramas, refinamiento, etc.
+Luego de todo esto se comenzaba a codificar. Para este punto las modificaciones fueron tantas que lo entregado no era
+satisfactorio para el cliente.
+
+Comenzaron a surgir prototipos, un estilo de maqueta para el cliente.  Sobre el final se hacían las pruebas, por lo que
+si se quería hacer un cambio no se tiene en cuenta, por lo que es much más difícil.
+
+En cambio los entregables son más flexibles, por lo que permite avanzar más rápidamente. Algunas metodologías son más
+flexibles a los cambios que pueda producir el cliente, aun dentro de la misma iteraciones y otros no (cuando no se
+aceptan más cambios en las iteraciones Se utiliza para comprometer más al cliente, para que defina más lo que requiere).
+Siempre el cliente está, algunas veces participa activamente y en otras no.
+
+En comparación con la ingeniería de software tradicional, el desarrollo ágil se dirige principalmente a los
+sistemas complejos y proyectos con características dinámicas, donde las estimaciones precisas, los planes
+estables y las predicciones son a menudo difíciles de conseguir en las primeras etapas, y grandes... (de la
+filmina) La tradicional permite saber lo que se llegará a hacer dentor de 6 meses.
+
+\subsubsection{Particularidades}
+
+\begin{itemize}
+    \item
+        Iteraciones deben durar de 1 a 4 semanas, y se produce TODO el entregable: Diseño, planificación,
+        implementación, prueba, etc. Y se entrega todo funcionando.
+
+    \item
+        Cliente siempre presente, depende de la metodología depende de si forma parte activa o más pasiva. En el momento
+        de la iteración algunas veces está para que le hagna consulta y NO para modificar lo solicitado.
+
+    \item
+        Se trata de trabajar en el mismo lugar que esté el cliente. Lo mejor es que sea entre medio de 9 personas, todas
+        las mañanas se hacen las reuniones de sincronización para explicar lo que está haciendo cada uno; todo s saben
+        lo que hace cada uno, qué problemas tuvo, qué va a hacer.
+
+    \item
+        Si se dividen en iteraciones, entonces se puede ir midiendo a medida que estas evolucionan y se entregan.  Si
+        hay una entrega ques es difícil de llegar a tiempo, NO se toma personal extra, y TAMPOCO se hacen horas extras,
+        sino que se subdividen los problemas, y se extienden los plazos.
+
+    \item
+        Diseños simples, sin complejizar las cosas, y refactorizar el código: para qu quede un código prolijo y simple.
+
+    \item
+        Equipos autorganizados, equipos totalmente adaptativos a las circunstancias.
+
+    \item
+        En las pruebas se puden hacer concurrentes a cada iteración.  Se documenta lo mínimo e indispensable para que se
+        lleve a cabo la iteración. Pero tampoco es bueno documentar tan poco.
+\end{itemize}
+
+Algunos consideran que las metodologias ágiles son muy extremas por lo que no se implementa, pero según el mercado como
+evoluciona rápidamente, se implementa de a poco en otros tipos de proyectos.
+
+\subsection{Diagramas}
+
+\textbf{Diagrama de clases}: Si dentro de una clase Auto, tengo un tipo de dato ''motor'' y esta tiene muchos datos que se
+le pueden atribuir, entonces acá se debe poner una relación de \emph{composición}
+
+\textbf{Diagrama de Secuencia}: Se debe tener en cuenta que los objetos de tipo ''tabla de cuentas'' sólo sirven para ser
+como paso intermedio antes de comunicarse con el objeto particular en sí mismo. Por ejemplo en el caso de que lo que se
+quiera modelar sea una entidad bancaria, y se quiera representar la evaluación de una cuenta, primero se comunica con la
+''tabla de cuentas'' para saber si es que existe propiamente la cuenta y luego si es que existe, entonces se diagrama la
+relación del objeto llamador con la clase ''cuenta'' propiamente.
+
+\section{Clase nº 3}
+
+\subsection{Programación Extrema (XP)}
+
+\textbf{Programación Extrema}: pone mayor énfasis en la adaptabilidad que en la previsibilidad (como lo suelen hacer las
+metodologías tradicionales).
+Se prefiere invertir tiempo en los cambios a medida que surgen que a generar planes. Con esto se ahorra de gastar
+energías en preveer lo que va a suceder dentro de un largo plazo de tiempo (Las metodologías tradicionales tienden a
+gastar mayor cantidad de tiempo en preveer el futuro).
+
+\subsection{Fases de la XP}
+
+Las Fases adoptadas por la Programación Extrema son las siguientes:
+\begin{itemize}
+    \item
+        \textbf{Exploracion}: se determina el alcance del proyecto se recaudan las historias de usuario y se determina
+        cuánto tiempo va a durar el proyecto en base a las historias de usuario. La fase dura: aproximadamente 2
+        semanas.
+
+    \item
+        \textbf{Planificacion}: cliente, gerentes, desarrolladores, TODOS según la profesora.  En otras metodología no
+        se incluye el cliente para esta fase.  Se determina el orden en que se va a ejectura, a qué historia se le da
+        más bola, y a partir de ahí se determina la entrega. Una vez que se deterina la entrega comienza la fase de
+        Iteración.
+
+    \item
+        \textbf{Iteración}: se implementan una parte de la historias de usuario. Algunas veces se redefine el orden de
+        las historias. En una iteración se implementa las hitistirias y se entregan un software funcionando.  Partes de
+        la iteración: Analisis, diseño, programación pruebas.  Cuando se hace cada itreación se hacen pruebas, todo el
+        tiemp ose está probando lo nuevo y lo que ya se había probado.  Iteración permite medir el avance del proyecto.
+
+    \item
+        \textbf{Historia de usuario}: tiene que tener la información necesaria para que se pueda estimar el tiempo que
+        va a llevar desarrollarlo. No se documenta todo, lo menos posible como para que se entienda lo que se está
+        haciendo.  Cuando se implementa una historia de usuario el cliente tiene que estar activamente en cada
+        implementación, ya que da ayuda. Ayuda activamente en la iteración el cliente.
+        Las historias las escriben los usuarios en un lenguaje lo más sencillo posible.
+        En ésta etapa Se analizan y se generan un plan de entregas. Recordar que las Historias de usuario sustituyen los
+        casos de usos.  Debe durar 1 y 3 semanas, si lleva más entonces se dividen, y si es menos se agregan nuevas a la
+        iteración.
+        Las historias de usuario se ordenan según el criterio del cliente. El soporte también lo dan el otro equipo,
+        pero predomina el criterio del cliente.
+
+\end{itemize}
+
+¿Cuándo un sistema debería pasar a producción? Cuando está completo. No es lo que pasa habitualmente, a veces hay
+etapas donde se hace una puesta en desarrollo; en otros lugares directamente lo pasan a producción sin tener una
+mínima requisito y los errores se corrigen en producción. Como por ejemplo en software de liquidación de sueldos que
+se hacen sobre la marcha y la problemática lleva a que los sistemas se degeneren.
+
+Cuando hay dificultades de definir los tiempos, hay programas que se denominan ''Spikes'' que sirven para ello.
+
+La metodología XP se diferencian de las tradicionales por: Todas las personas trabajando en el mismo lugar, no hacer
+horas extras, tampoco incluir otras personas temporalmente porque se pierde más tiempo.
+Xp apunta a la simplicidad y a su funcionamiento.
+
+
+Características fundamentales del código:
+
+\begin{itemize}
+    \item
+        Testeable
+    \item
+        Legible
+    \item
+        Comprensible
+    \item
+        Explicable
+\end{itemize}
+
+\textbf{Refactorizacion}: código simple y funcional. Reescribir las cosas que quedaron poco claras. XP sugiere
+refactorizar cuando sea necesario. Es para que quede más ordenado y legible.
+
+\subsection{SmallTalk y POO: tipos de mensajes}
+
+
+
+\end{document}
