@@ -378,6 +378,557 @@ refactorizar cuando sea necesario. Es para que quede más ordenado y legible.
 
 \subsection{SmallTalk y POO: tipos de mensajes}
 
+\subsubsection{Unarios (sin argumentos)}
 
+Operación: \[3!\]
+\begin{itemize}
+    \item
+        \textbf{Receptor}: 3
+    \item
+        \textbf{Mensaje}: Factorial
+    \item
+        \textbf{Selector}: Factorial
+    \item
+        \textbf{Valor de retorno}: 6
+\end{itemize}
+
+\subsubsection{Binarios}
+
+Este tipo de operaciones contienen un sólo argumento, siendo de tipo matemático lógicas.
+
+Operación: \[3 < 5\]
+
+\begin{itemize}
+    \item
+        \textbf{Receptor}: 3
+    \item
+        \textbf{Selector}: <
+    \item
+        \textbf{Argumento}: 5
+    \item
+        \textbf{Valor de retorno}: True
+\end{itemize}
+
+\subsubsection{De palabra clave}
+
+Operaciones que pueden tener uno o más argumentos.
+
+Operación:
+\#(3 5 7 1) at: 2 put:9
+
+\begin{itemize}
+    \item
+        \textbf{Receptor}: \#(3 5 7 1)
+    \item
+        \textbf{Selectores}: at y put
+    \item
+        \textbf{Argumentos}: 2 y 9
+    \item
+        \textbf{Mensaje}: at: 2, put:9
+    \item
+        \textbf{Valor de Retorno}: \#(3 9 7 1)
+\end{itemize}
+
+Lo que realiza esta operación es poner el valor 9 en la posición nº 2 del array creado.
+
+\subsubsection{Orden de Resolución de los mensajes}
+\begin{enumerate}
+    \item
+        Los paréntesis (si hay paréntesis siempre se resuelve primero eso)
+    \item
+        Los mensajes unarios, de izquierda a derecha
+    \item
+        Los mensajes bianrios, de izquierda a derecha
+    \item
+        Los mensajes de palabra clave, de izquierda a derecha
+\end{enumerate}
+
+Debe existir un orden para realizar las operaciones ya que en una misma línea, es decir en un mensaje anidado, el
+lenguaje debe saber cómo resolver primero qué parte, por ello requiere tener una lógica; hay que saber cómo SmallTalk lo
+resuelve.
+El lenguaje requiere que cada linea termine con un "." (punto)
+
+\subsubsection{Ejemplo de mensajes y operaciones}
+
+\textbf{Unarios}:
+\begin{itemize}
+    \item
+        5!.
+    \item
+        19,75 rounded.
+    \item
+        ''abcd'' size.
+\end{itemize}
+
+\textbf{Binarios}:
+\begin{itemize}
+    \item
+        'abc' n = 'def'
+    \item
+        3 > 5
+    \item
+        true and false
+\end{itemize}
+
+\textbf{De Palabra clave}:
+\begin{itemize}
+    \item
+        \#(3 5 7 1) at: 2 put: 9
+    \item
+        5 between: 8 and 10.
+\end{itemize}
+
+\subsection{Mensajes anidados}
+
+Ejemplo de un mensaje anidado: \emph{2 factorial negated.} En este ejemplo se puede observar que hay dos mensajes
+unarios integrados, anidados.
+
+Lo primero que se resuelve es \emph{2 factorial} porque se resuelve de izquierda a derecha.
+
+Orden de resolución:
+\begin{enumerate}
+    \item
+        \textbf{Receptor}: 2
+    \item
+        \textbf{Mensaje}: factorial
+    \item
+        \textbf{Valor de retorno}: 2
+\end{enumerate}
+
+Se resuelve segundo: "2 nagated"
+\begin{enumerate}
+    \item
+        \textbf{Receptor}: 2
+    \item
+        \textbf{Mensaje}: negated
+    \item
+        \textbf{Valor de Retorno}: -2
+\end{enumerate}
+
+\emph{Ejercicio de la práctica}:
+
+Operación:
+
+\[3 + 4 * 6 + 3\]
+Contiene varios mensajes binarios.
+
+Resolución del primer mensaje:
+\[3 + 4\]
+\begin{enumerate}
+    \item
+        \textbf{Receptor}: 3
+    \item
+        \textbf{Mensaje}: + 4
+    \item
+        \textbf{Selector}: +
+    \item
+        \textbf{Argumento}: 4
+    \item
+        \textbf{Valor de Retorno}: 7
+\end{enumerate}
+
+Resolución del segundo mensaje (de izquierda a derecha):
+\[7 * 6\]
+\begin{enumerate}
+    \item
+        \textbf{Receptor}: 7
+    \item
+        \textbf{Mensaje}: * 6
+    \item
+        \textbf{Selector}: *
+    \item
+        \textbf{Argumento}: 6
+    \item
+        \textbf{Valor de Retorno}: 42
+\end{enumerate}
+
+Resolución del tercer mensaje:
+\[42 * 3\]
+\begin{enumerate}
+    \item
+        \textbf{Receptor}: 42
+    \item
+        \textbf{Mensaje}: + 3
+    \item
+        \textbf{Selector}: +
+    \item
+        \textbf{Argumento}: 3
+    \item
+        \textbf{Valor de Retorno}: 45
+
+\end{enumerate}
+
+Recordar que Smalltalk NO tiene prioridad sobre los operadores como puede ser C o Pascal, siempre resuelve las cosas de
+izquierda a derecha. Por lo que el programador debe poner paréntesis en las operaciones a realizar.
+
+\subsubsection*{Ejercicio de la práctica}
+
+Operación:
+
+\emph{5 between: 1 and: 3 squared + 2 factorial}
+
+Observar que la operación completa contiene 3 mensajes:
+
+\begin{enumerate}
+    \item
+        \textbf{1er mensaje}: 3 squared = 9
+    \item
+        \textbf{2do mensaje}: 2 factorial  = 2
+    \item
+        \textbf{3er mensaje}: 5 between: 1 and: 1er + 2do
+    \item
+        \textbf{Resultado}: 5 between: 1 and: 9 + 11 = true
+\end{enumerate}
+
+\subsection*{Estructuras de control}
+
+\subsubsection*{Condicionales}
+
+La estructura sería la siguiente:
+(expresión booleana) \emph{iftrue:} [Bloque verdadero]
+
+\emph{iffalse:} [Bloque falso]
+
+
+\emph{Explicación de lo anterior}:
+Se resuelve primero la expresión booleana que está en entre paréntesis,  que devueve true o false los cuals son una
+instancia de la clase booleana. Esta instancia de booleana se le está enviando un mensaje \emph{iftrue, iffalse} ¿Dónde está
+implementado ese mensaje? Está definido en su protocolo de mensaje en la clase o superclase, porque hay herencia, lo
+puede tomar porque lo entiende.
+
+Bloques es todo lo que está entre corchetes. Si el que recibe es una instancia verdadera, entonces recibe el mensaje
+bloque verdadero, si el que recibe es la instancia falso, entonces recibe el mensaje bloque falso.
+
+¿Qué diferencia hay entre una función y los bloques? La función puede devolver un resultado, puede tener argumentos,
+tiene un nombre y necesitan ser invocados.
+En cambio los bloques son anónimos y se activan cuando el control pasa por ellos, no requieren ser invocados. Recordar
+que son los que están entre corchetes.
+
+\begin{enumerate}
+    \item
+        La expresión booleana es evaluada, dará como resultado un objeto true o false.
+    \item
+        Si el resultado es true el mensaje iftrue: con sus argumentos serán enviados al objeto true.
+    \item
+        El objeto true responde el mensaje evaluando el [bloque verdadero].
+    \item
+        Si el resultado es false el mensaje iffalse: con sus argumentos serán enviados al objeto false.
+    \item
+        El objeto false responde el mensaje evaluando el [bloque falso].
+\end{enumerate}
+
+\subsubsection*{Repetición Condicional}
+
+La estructura sería la siguiente:
+[expresión booleana] \emph{WhileTrue:} [Cuerpo del loop]
+
+[expresión booleana] \emph{WhileFalse:} [Cuerpo del loop]
+
+\emph{iffalse:} [Bloque falso]
+
+\textbf{Interpretación del whileTrue}:
+
+No se tiene paretensis, por lo que el mensaje whiltrue se envia a la expresión booleana, se evalúa, si el objeto es true
+entonces se evalua el cuerpo del loop.
+
+\begin{enumerate}
+    \item
+        El mensaje whileTrue es enviado al bloque 'expresión booleana'.
+    \item
+        Como respuesta, se evalúa el bloque.
+    \item
+        Si el bloque retorna el objeto true entonces se evalúa el cuerpo del Loop y el mensaje whileTrue es nuevamente
+        enviado al bloque de la expresión booleana.
+    \item
+        Luego se repiten los pasos 1, 2, 3.
+\end{enumerate}
+
+\subsubsection*{Repetición de Longitud física}
+
+Estructura de la condición:
+
+\emph{ValorInicial} to: \emph{valorFinal} do: [ :variable del loop | cuerpo del loop ]
+
+El mensaje to: do: evalúa el argumento en bloque para cada entero que esté en el
+intervalo dado por el valor del receptor, hasta el valor final incluido
+
+\subsubsection*{Ejercitación de mensajes en Smalltalk}
+
+\begin{enumerate}
+    \item
+        'casa' isNil.
+    \item
+        9 + 3 * 2.
+    \item
+        true is false.
+    \item
+        \#( 12 65 'olas' true) includes: 'viento'.
+    \item
+        3 * 2 squared
+    \item
+        4 + 2 negated between: 3 + 4 * 5 and: 'hello' size * 10
+\end{enumerate}
+
+Resolución:
+
+\textbf{Operación}: ''casa'' isNil
+
+\textbf{Tipo de mensaje}: Unario
+
+\begin{itemize}
+    \item
+        \textbf{Receptor}: ''casa''
+    \item
+        \textbf{Mensaje}: isNil
+    \item
+        \textbf{Selector}: isNill
+    \item
+        \textbf{Argumento}: -
+    \item
+        \textbf{Valor de Retorno}: false
+\end{itemize}
+
+\textbf{Operación}: $9 + 3 * 2$
+
+\textbf{Tipo de mensaje}: Varios mensajes Binarios
+
+Primer mensaje de Izquierda a Derecha: $9 + 3$
+\begin{itemize}
+    \item
+        \textbf{Receptor}: 9
+    \item
+        \textbf{Mensaje}: + 3
+    \item
+        \textbf{Selector}: +
+    \item
+        \textbf{Argumento}: 3
+    \item
+        \textbf{Valor de Retorno}: 12
+\end{itemize}
+
+Segundo mensaje de Izquierda a derecha:
+
+\textbf{Operación}: $12 * 2$
+\begin{itemize}
+    \item
+        \textbf{Receptor}: 12
+    \item
+        \textbf{Mensaje}: * 2
+    \item
+        \textbf{Selector}: *
+    \item
+        \textbf{Argumento}: 2
+    \item
+        \textbf{Valor de Retorno}: 24
+\end{itemize}
+
+\textbf{Operación}: true is false
+
+\textbf{Tipo de mensaje}: Binario
+
+\begin{itemize}
+    \item
+        \textbf{Receptor}: true
+    \item
+        \textbf{Mensaje}: if falase
+    \item
+        \textbf{Selector}: is
+    \item
+        \textbf{Argumento}: false
+    \item
+        \textbf{Valor de Retorno}: false
+\end{itemize}
+
+\textbf{Operación}: \#(12 65 ''olas'' true) includes: ''viento''
+
+\textbf{Tipo de mensaje}: de Palabra Clave, ya que lleva el caracter '':''
+
+\begin{itemize}
+    \item
+        \textbf{Receptor}: \#(12 65 ''olas'' true)
+    \item
+        \textbf{Mensaje}: includes ''viento''
+    \item
+        \textbf{Selector}: include
+    \item
+        \textbf{Argumento}: ''viento''
+    \item
+        \textbf{Valor de Retorno}: false
+\end{itemize}
+
+\textbf{Operación}: 3 * 2 squared
+
+Segundo mensaje realizado:
+
+\textbf{Operación}: 3 * 4
+
+\begin{itemize}
+    \item
+        \textbf{Receptor}: 3
+    \item
+        \textbf{Mensaje}: * 4
+    \item
+        \textbf{Selector}: *
+    \item
+        \textbf{Argumento}: 4
+    \item
+        \textbf{Valor de Retorno}: 12
+\end{itemize}
+
+\section{Clase nº 4}
+
+\subsection{Programación extrema}
+
+En la Programación Extrema (XP) el cliente se encuentra presente en TODO el proceso, y tiene una participación activa
+(es lo que diferencia esta metodología con respecto a otra). En otras metodologías el cliente es pasivo, porque no tiene
+incidencia en los desarrollos.
+
+Las \textbf{Historias de usuario}: son escrita por el cliente, y los desarrollos. Ademas asigna la prioridad porque es el que más
+entiende.
+
+\textbf{Planificación}: el cliente negocia lo que se entrega porque entiende lo que es la funcionalidad. Y sabe cuándo
+está completo el dsarrollo porque sólo él tiene el conocimiento completo del negocio.
+
+¡Los roles dentro de XP son muy importantes! Las tareas que requiere cada uno de las partes del equipo.
+
+\textbf{Estandares de código}: se tiene que mantener fácil para realizar refactorización. Las convenciones ayudan a
+entenderse mjor entre todo el desarrollo del equipo.
+
+\textbf{Implementación dirigida por prubas}: característica muyu importante en XP, ya que en otras meto se prueban todo
+al final, en XP se desarrollan los test desde el comienzo.
+Se define antes de codificar cuáles son los resultados a los que se quiere llegar.
+
+Gracias a esta forma de desarrollar los test, se dicen que los test dirigen el proceso (implementación dirigida por
+pruebas). Se apuntan a esos desarrollos. A cada modificación de la funcionalidad, también se requiere que se modifiquen
+los test, ya que van de la mano.
+
+\textbf{Programación en pareja}: dos personas en la MISMA computadora, lo que se apunta son a códigos más eficientes, se
+detectan los errores antes de que surgan, se a la implementación mayor calidad en el código.
+
+Ventaja:
+\begin{itemize}
+    \item
+        Los errores se detectan antes, los diseños mejores y código más corto, el equipo resuelve más rápido las
+        dificultades, se termina con más personas conociendo el código a detalle. A diferencia de las metodologías
+        anterires donde cada programador sólo hacía una parte del sistema.
+    \item
+        Otra Ventaja es que las personas aprenden a trabajar en grupo, es más dinamico, las personas disfrutan más de su
+        trabajo.
+\end{itemize}
+
+
+\textbf{Integración secuencial}: todos tienen que trabajar con la última versión. Todo lo que se sube tiene que estar
+probado y todo tiene que estar funcionando correctamente.
+
+\textbf{Propiedad colectiva}: animar a todos a proponer nuevas ideas.
+
+\textbf{Ritmo constante}: beneficioso mantner un ritmo en conjunto. Se define cuantas historias entras en una realease.
+todo esto para no sobrecargar al equipo, para tner un poco de estimar los tiempo de entregas; cuando se encuentra un
+problema en la estimación, se alarga la entrega. No se hace hors extra ni se llama a nadie mas.
+
+Características importantes:
+\begin{itemize}
+    \item
+        Simplicidad: no hacer más de lo que se tiene que hacer
+    \item
+        Comunicación: el cara a cara.
+    \item
+        Retroalimentación: retro, mejorar el equipo para procesos futuros
+    \item
+        Coraje: responsabilidad en las tareas que se asumen.
+\end{itemize}
+
+\textbf{Roles} (importantes):
+
+\begin{itemize}
+    \item
+        \textbf{Cliente}: responsable de conducir el proyecto, lo define y también sus objetivos. Tiene que saber
+        determinar el valor d las historias de usuario en el sistema. El cliente representa al usuario final y a los
+        intereses económicos de la emprsa. Ver bien los Derechos y sus responsabilidades.
+    \item
+        \textbf{Programador}: responsablidad de tomar decisiones técnicas. Estiman las historias de usuario. Ver bien
+        los Derechos y responsabiidades.
+    \item
+        \textbf{Encargado de pruebas (tester)}: Ayuda al cliente para escribir los test de las historias de usuario,
+        informa al equipo de ello.
+    \item
+        \textbf{Encargado de seguimiento (tracker)}: Hace el seguimiento de acuerdo de la planifiicación. Pregunta uno
+        por uno a los usuarios qué onda con las cosas con las que se comprometieron. La velocidad ayuda a mejorar el
+    \item
+        \textbf{Entrenador (coach)}: hace que cada persona dé lo mejor de sí para la empresa. No se entrena para un
+        trbajo específico, lo que hace es prerpara al equipo en las prácticas. Se entrena en la metodología que se irá a
+        aceptar.
+    \item
+        \textbf{Gestor (big boss)}: El big boss es el gerente del proyecto. Debe tener una idea generalizada del
+        proyecto y esar relacionado con su estado.
+\end{itemize}
+
+\section{Clase nº 5}
+
+\subsection{Scrum}
+
+\textbf{IMPORTANTE}: De scrum lo más importante son las etapas y lo que salen de estas: el gráfico, las etapas, la
+relación con el cliente y las etapas.
+
+No hay que darle pelota a la historia. Hay que hacer algún tipo de apunte con lo que tiene que ver con los roles, y
+demás cosas. Lo que interesa las fases que son propias de Scrum.
+
+\textbf{El cliente} no participa activamente durante la iteración ¿por qué? Participa en la planificación de la iteración, XP es
+más flexible, scrum NO. En scrum debe decirir el cliente lo que requiere para definir, por lo que lo compromete de forma
+más enérgica para poder terminar de entregar tangible, para que pida las cosas que realmente necesite.
+
+\textbf{Planificación de la iteración}: Lista de requisitos del proyecto lo da el cliente.  El equipo toma las cosas y
+compromete a realizarlas. Se llega a un acuerdo entre lo que se pide y lo que se va a desarrollar.
+
+De la segunda parte de la reunión sale la \emph{Lista de tareas} de iteración. Se realiza una estimación conjunta del
+esfuerzo necesario. Cada uno se compromete a las tareas que SOLO PUEDE realizar. Es una diferencia con respecto a otras
+metodlogías, ya que aquí cada miembro se tiene un mayor compromiso con el proyecto en general. El Equipo asume la
+responsablidad, cada persona se responsabliliza las tareas que se asigna.
+
+\textbf{Iteración}: Ejecución del sprint (iteración): 2 a 4 semanas(sin diferencia de XP). Se entrega un todo como XP.
+
+Las \textbf{reuniones de sincronización/dailys} son iguales en XP, son como las diarias en XP. Cada uno dice lo que
+hizo, lo que le falta hacer, etc. Algunas empresas son más estrictos en aquellas personas que no logran los objetivos a
+los que se comprometieron. El tiempo máximo es de 15 minutos (todo esto es igual en XP).
+
+
+\textbf{Facilitador /scrum master}: quita obstáculos para que elequipo trabaje más rápido y sin problemas, sin
+conflictos externos ni tampoco internos. De que se no merme su productividad.
+
+\textbf{Restricciones}: No se pueden cambiar los pedidos. ¿Cuándo se puede cambiar? Cuando ya no tiene sentido; cuando
+por ejemplo se cambia el contexto, cuando es más perjudicial seguir trabajando en la iteración que cambiar de rumbo
+(terminación anormal).  Comprometerse al cliente facilita que se cumpla con su responsablidad de conocer qué es lo más
+prioritario.
+
+Lo característico de Scrum es que permite visualizar el avance del equipo mediante el gráfico \textbf{burndown chart}.
+Es un gráfico que permie saber dónde se está posicionado, hacia dónde se puede entregar, cuál es la fecha que uno se
+comprometió, qué se puede hacer para cumplir con las fechas estipuladas, se pueden hacer todas estas simulaciones. Sólo
+mirando el gráfico se puede saber en qué etapa estás, si se está atrasado con los que se comprometió. El grafico permite
+hacer las correciones necesarias.
+
+Responsabilidades:
+\begin{itemize}
+    \item
+        \textbf{Lista de requisitos} la define el cliente.
+    \item
+        \textbf{Lisa de tareas} la define el equipo.
+\end{itemize}
+
+\textbf{Demostracion de requisitos}: se le muestra los resultados obtenidos de la iteración al cliente, a muy alto
+nivel. El cliente en esta etapa realiza las modificaciones pertinentes que él requiere. ESE es el momento que el cliente
+puede realizar alguna planificación en los cambios y esos cambios serán realizados en la proxima iteración.
+
+\textbf{Retrospectiva}: intervienen el equipo realizando una crítica para mejorar en las siguientes etapas. El facilitador se
+encarga de ser una persona que permite limar asperezas.
+
+\textbf{Replanificación del proyecto}: En un principio se puede haber pensado determinadas pero en este momento el
+cliente puede replanificar todos los requisitos.
+
+Si en el medio de la iteración cambió algo, no se puede cambiar, sino hasta el final. Sólo en el final se puede
+re-planificar, se puede abortar cuando no tiene sentido seguir.
+
+El cliente puede cancelar todo el proyecto en caso de perder dinero si siguen en pie los desarrollos.
+
+\textbf{Estimación}: El equipo debe tener una estimación de lo que lleva cada tarea, de cada uno delos requisitos.
 
 \end{document}

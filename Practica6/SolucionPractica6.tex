@@ -1,0 +1,233 @@
+\documentclass[10pt, spanish]{article}
+
+\usepackage{geometry} %Necesario para poder equiparar los márgenes
+ \geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+     top=20mm,
+}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{listings}
+\usepackage{color}
+
+\lstloadlanguages{C,C++,csh,Java}
+
+\definecolor{red}{rgb}{0.6,0,0}
+\definecolor{blue}{rgb}{0,0,0.6}
+\definecolor{green}{rgb}{0,0.8,0}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{cloudwhite}{rgb}{0.9412, 0.9608, 0.8471}
+
+\lstset{
+    language=csh,
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    tabsize=2,
+    extendedchars=true,
+    breaklines=true,
+    frame=b,
+    stringstyle=\color{blue}\ttfamily,
+    showspaces=false,
+    showtabs=false,
+    xleftmargin=17pt,
+    framexleftmargin=17pt,
+    framexrightmargin=5pt,
+    framexbottommargin=4pt,
+    commentstyle=\color{green},
+    morecomment=[l]{//}, %use comment-line-style!
+    morecomment=[s]{/*}{*/}, %for multiline comments
+    showstringspaces=false,
+    morekeywords={ abstract, event, new, struct,
+    as, explicit, null, switch,
+    base, extern, object, this,
+    bool, false, operator, throw,
+    break, finally, out, true,
+    byte, fixed, override, try,
+    case, float, params, typeof,
+    catch, for, private, uint,
+    char, foreach, protected, ulong,
+    checked, goto, public, unchecked,
+    class, if, readonly, unsafe,
+    const, implicit, ref, ushort,
+    continue, in, return, using,
+    decimal, int, sbyte, virtual,
+    default, interface, sealed, volatile,
+    delegate, internal, short, void,
+    do, is, sizeof, while,
+    double, lock, stackalloc,
+    else, long, static,
+    enum, namespace, string},
+    keywordstyle=\color{cyan},
+    identifierstyle=\color{red},
+    backgroundcolor=\color{cloudwhite},
+}
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{blue}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+
+\author{Emiliano Salvatori}
+\title{Metodología de la programación II \\
+    \large Practica IV}
+\date{Septiembre 2019}
+\pagestyle{headings}
+
+\begin{document}
+\maketitle
+
+
+% ----------------------------------------------------------------------
+%                       INTRODUCION
+% ----------------------------------------------------------------------
+\section{Practica VI}
+
+\subsection*{Kanban y Scrumban}
+
+\subsubsection*{¿Qué es el sistema Kanban? ¿En qué consiste?}
+
+Es un sistema de información que controla de modo armónico la fabricación de los productos necesarios en la cantidad y
+tiempo necesarios en cada uno de los procesos que tienen lugar tanto en el interior fábrica como entre distintas
+empresas.
+
+Se lo conoce también como ''sistema de tarjetas'' porque en su implementación más sencilla utiliza tarjetas que se pegan
+en los contenedores de materiales y que se despegan cuando estos contenedores son utilizados, para asegurar la
+reposición de dichos materiales. Las tarjetas y otros métodos más modernos de visualización de flujo, actúan de testigo
+del proceso de producción.
+
+\subsubsection*{¿En qué sistema se inspiró?}
+
+En el contexto de desarrollo de software, Kanban es un sistema visual de gestión de procesos que indica qué, cuándo y
+cuánto producir.  Está inspirado en el Toyota Production System, desarrollado entre 1948 y 1975.
+
+\subsubsection*{¿En qué principios se basa?}
+
+El sistema Kanban se basa en los siguientes principios:
+\begin{itemize}
+    \item
+        \textbf{Comenzar con lo actual}: El método Kanban se inicia con las funciones y procesos que ya se tienen y
+        estimula cambios continuos, incrementales y evolutivos al sistema.
+    \item
+        \textbf{Aplicar cambios incrementales}: Todos deben estar de acuerdo en que la manera de hacer mejoras en el
+        sistema es el cambio continuo, gradual y evolutivo.  Los cambios fuertes pueden parecer más eficaces, pero
+        fracasan más debido a la resistencia y el miedo en la organización.
+    \item
+        \textbf{Respetar lo establecido}: Para facilitar el cambio futuro conviene respetar los roles, responsabilidades
+        y cargos actuales, eliminando los temores iniciales.  Esto permite obtener un mayor apoyo a la iniciativa
+        Kanban.
+    \item
+        \textbf{Liderazgo en todos los niveles}: Kanban promueve acciones de liderazgo desde las personas de bajo rango
+        hasta los gerentes.
+\end{itemize}
+
+\subsubsection*{¿Cómo se establece el liderazgo en Kanban?}
+
+Kanban promueve acciones de liderazgo desde las personas de bajo rango hasta los gerentes.
+
+\subsubsection*{¿Cúal es su metodología de trabajo?}
+
+La metodología de trabajo es la siguiente:
+
+\textbf{Visualizar el trabajo} :Kanban se base en el desarrollo incremental, dividiendo el trabajo en partes.
+Una de las principales aportaciones es que utiliza técnicas visuales para ver la situación de cada tarea, y que
+se representa en pizarras llenas de post-it. Normalmente cada una de las partes del trabajo se escribe en un
+post-it y se pega en un pizarron.Los post-it pueden tener información variada, aunque en particular deberían
+tener la estimación de la duración de la tarea.
+
+La pizarra tiene tantas columnas como estados por los que puede pasar la tarea.  Por ejemplo, ''en espera de ser
+desarrollada'', ''en análisis'', ''en diseño'', etc.
+
+El objetivo de esta visualización es que quede claro el trabajo a realizar, en qué está trabajando cada persona,
+que todo el mundo tenga algo que hacer y el tener clara la prioridad de las tareas.
+
+\subsubsection*{¿Por qué Kanban considera que hay que limitar el WIP (''work in progress'')?}
+
+Una de las principales ideas del Kanban es que el trabajo en curso (Work In Progress) debería estar limitado, es decir,
+que el número de tareas que se pueden realizar en cada fase debe ser algo conocido.
+
+Independientemente del tamaño y la complejidad de un proyecto, hay una cantidad de trabajo óptima que se puede realizar
+sin sacrificar eficiencia.
+
+En Kanban se deben definir cuántas tareas como máximo se pueden realizar en cada fase del ciclo de trabajo.  Por
+ejemplo: 4 tareas en desarrollo y 2 tareas de pruebas.  A esos números se los llama límite del WIP (work in progress).
+
+\subsubsection*{¿Qué es el ''lead time''?}
+
+El tiempo que se tarda en terminar cada tarea se debe medir, y se llama ''lead time''. El ''lead time'' cuenta desde que
+se hace una petición hasta que se concreta la entrega.
+
+\subsubsection*{¿Qué es el ''cycle time''?}
+
+Kanban también suele utilizar el ''cycle time''. Es otra métrica que mide el tiempo, pero desde que el comienza hasta
+que termina el trabajo efectivo sobre una tarea.
+El ''lead time'' mide lo que ven y esperan los clientes, mientras el ''cycle time'' mide más el rendimiento del proceso.
+
+\subsubsection*{¿El usuario solicita una mejora al sistema el día 1. El día 5 se asigna la tarea a un equipo de análisis
+y programación. El día 8 el equipo comienza a trabajar en la mejora, termina el día 12, se prueba y finalmente se cierra
+la tarea y se entrega al usuario el día 14. ¿Cuál es el \emph{Lead Time} y cuál el \emph{Cycle time}?}
+
+El \emph{Lead Time}, como se dijo anteriormente, es lo que el cliente ve, por lo que serían 14 días desde que se hizo la
+petición de la mejora del sistema, hasta que se realizó el entregable.
+
+En cambio el \emph{Cycle Time} es el trabajo efectivo del equipo, por lo que iría del día 5 hasta el día 12, por lo que
+haría un total de 7 horas.
+
+\subsubsection*{¿Cómo son los roles en la metodología Kanban?}
+
+La metodología Kanban no prescribe roles. Tener un papel asignado y las tareas asociadas a dicho papel crean una
+identidad en el individuo.
+
+Por lo tanto, pedir que adopten un nuevo papel o un nuevo puesto de trabajo puede ser entendido como un ataque a su
+identidad. Habría una resistencia al cambio.  Kanban trata de evitar esa resistencia emocional y entiende que la
+ausencia de papeles es una ventaja para el equipo.
+
+\subsubsection*{¿De dónde deriva la metodología Scrumban?}
+
+\emph{Scrumban} es una metodología derivada de los métodos de desarrollo Scrum y Kanban.
+
+Es un modelo de desarrollo especialmente adecuado para proyectos:
+\begin{itemize}
+    \item
+        De mantenimiento.
+    \item
+        Con historias de usuario que varíen con frecuencia.
+    \item
+        En los que surjan errores de programación inesperados durante todo el ciclo de desarrollo.
+\end{itemize}
+
+\subsubsection*{¿Qué hereda Scrumban de Scrum?}
+
+Scrumban hereda de Scrum:
+\begin{itemize}
+    \item
+        Roles: cliente, equipo (con los diferentes perfiles que se necesiten).
+    \item
+        Reuniones: reunión diaria.
+    \item
+        Herramientas: pizarrón.
+\end{itemize}
+
+\subsubsection*{¿Qué hereda Scrumban de Kanbam?}
+
+Scrumban hereda de Kanban:
+\begin{itemize}
+    \item
+        Flujo visual.
+    \item
+        Hacer lo que sea necesario, cuando sea necesario y sólo la cantidad necesaria.
+    \item
+        Limitar el WIP.
+    \item
+        Optimización del proceso.
+\end{itemize}
+
+\subsubsection*{Realice un cuadro comparativo de las metodologías XP, Scrum, Kanban y   Scrumban, donde se puedan ver
+sus principales características: herramientas, roles, reuniones, documentación e iteraciones}
+
+\end{document}
+
