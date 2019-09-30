@@ -12,6 +12,7 @@
 
 \usepackage{listings}
 \usepackage{color}
+\usepackage{tabularx}   %Necesario para poner la orientacion de {tabular} en 'medio'
 
 \lstloadlanguages{C,C++,csh,Java}
 
@@ -228,6 +229,25 @@ Scrumban hereda de Kanban:
 
 \subsubsection*{Realice un cuadro comparativo de las metodologías XP, Scrum, Kanban y   Scrumban, donde se puedan ver
 sus principales características: herramientas, roles, reuniones, documentación e iteraciones}
+%Es necesario para centrar en el medio las columnas,el paquete tabularx
+\begin{center}
+    \begin{tabular}{| c | m{7em} | m{7em} | m{7em} | m{7em} | m{5em} |}
+        \hline
+            -           & Herramientas  & Roles & Reuniones & Documentación & Iteraciones\\
+        \hline
+            XP & Pair programing, Spike & Cliente, Programadores, Testers, Trakers, Coach, Big Boss & Diaria, Planning &
+            Simple y escasa, Historias de Usuario & Exploración, Planificación,
+            Iteración, Producción\\
+        \hline
+            Scrum       & Product Backlog, Sprint Backlog, Burndown Chart & Cliente, Scrum Master, Equipo & Planificación,
+            Sprint, Diaria, Demo, Retro, Replanning & Simple & Sprint, Demo, Retro\\
+        \hline
+            Kanban      & Pizarrón, post-it  & No los posee, promueve el liderazgo & Diaria & - & Si\\
+        \hline
+            Scrumban    & Pizarrón, BackLog, BurnDown Chart  & Equipo + Otros & Diaria & - & No, es continuo\\
+        \hline
+    \end{tabular}
+\end{center}
 
 \end{document}
 
