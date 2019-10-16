@@ -3,9 +3,16 @@ alcance que será determinado por la profesora.  Lo que habría que hacer es delim
 enunciado de la problemática. 
 
 De ello se debe entregar: 
-    - Jerarquía de clases. 
-    - Diagrama de Clases. 
-    - Diagrama de Secuencia. 
+    - Jerarquía de clases -> NO se entrega
+    - Diagrama de Clases.
+    - Diagrama de Secuencia -> NO se entrega
+    - Especificar qué tipo de metodología se podría haber usado. 
+    - Especificar si se utilizó algún patrón de diseño. 
+    - Ver si se refactorizó el código (lo que significa que se haya hecho más simple). 
+    - Meter en el informe todo el soporte teórico que se puede dar al TP. 
+    - Escribir en un word o un texto, el código que se generó en Pharo. 
+    - Ver también de utilizar donde se pueda un diccionario. 
+    - En el informe se debe detallar qué hace cada una de las clases y los mensajes que acciona. 
 
 Ejemplo de posibles negocios: 
     - banco
@@ -48,8 +55,8 @@ Tipo de Negocio: cancha de futbol
 Alcance: 
 -------
 En el negocio se alquilan 3 tipos de canchas: de 5, 7 y 11. Existen dos tipos de horarios, el nocturno aumenta en un 20%
-por el gasto de luz. Cada turno se reserva por una hora. Si es socio paga una cuota y tiene un 30% de descuento sobre el
-precio final. Cuota social: $100
+por el gasto de luz. Cada turno se reserva por una hora. Si quien alquila es socio, paga una cuota y tiene un 30% de
+descuento sobre el precio final. Cuota social: $100
 
 Se listan a continuación la grilla de horarios: 
     - de 15 a 19: turno tarde
@@ -62,4 +69,9 @@ Tipos de canchas y costo:
         * Costo: $900
     - Cancha de 11:
         * Costo: $1500
+
+Clases: 
+    Club (tratarlo como si fuera Biblioteca)
+    Canchas (tratarlo como si fueran LIbros)
+    Socio
 
