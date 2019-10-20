@@ -1,44 +1,44 @@
 Diagramar un negocio que debe tener como máximo 4 clases. Se debe tener en cuenta que debe ser acotado a determinado
 alcance que será determinado por la profesora.  Lo que habría que hacer es delimitar el negocio. Sería pensar el
-enunciado de la problemática. 
+enunciado de la problemática.
 
-De ello se debe entregar: 
+De ello se debe entregar:
     - Jerarquía de clases -> NO se entrega
     - Diagrama de Clases.
     - Diagrama de Secuencia -> NO se entrega
-    - Especificar qué tipo de metodología se podría haber usado. 
-    - Especificar si se utilizó algún patrón de diseño. 
-    - Ver si se refactorizó el código (lo que significa que se haya hecho más simple). 
-    - Meter en el informe todo el soporte teórico que se puede dar al TP. 
-    - Escribir en un word o un texto, el código que se generó en Pharo. 
-    - Ver también de utilizar donde se pueda un diccionario. 
-    - En el informe se debe detallar qué hace cada una de las clases y los mensajes que acciona. 
+    - Especificar qué tipo de metodología se podría haber usado.
+    - Especificar si se utilizó algún patrón de diseño.
+    - Ver si se refactorizó el código (lo que significa que se haya hecho más simple).
+    - Meter en el informe todo el soporte teórico que se puede dar al TP.
+    - Escribir en un word o un texto, el código que se generó en Pharo.
+    - Ver también de utilizar donde se pueda un diccionario.
+    - En el informe se debe detallar qué hace cada una de las clases y los mensajes que acciona.
 
-Ejemplo de posibles negocios: 
+Ejemplo de posibles negocios:
     - banco
     - veterinaria
     - club
 
 [Se puede buscar el trabajo práctico de Metodología I para poder realizar determinadas operaciones]
 
-Se debe entregar un Informe, planteando varias cosas. 
+Se debe entregar un Informe, planteando varias cosas.
 
 ----------------------------------------
-                Banco 
+                Banco
 ----------------------------------------
 
 Tipo de Negocio: Banco
 --------------
 
-Alcance: 
+Alcance:
 -------
-El Banco XXX tiene tres tipos de cuentas: Cuentas Corrientes, Cajas de Ahorro, y Caja de Ahorro en Dólares. 
+El Banco XXX tiene tres tipos de cuentas: Cuentas Corrientes, Cajas de Ahorro, y Caja de Ahorro en Dólares.
 Los Socios que depositan su sueldo mediante el Banco XXX, se le abre automáticamente una Caja de Ahorro. Si el Socio
-sueldo del socio es superior a $120.000 entonces se le abre adicionalmente a la CA, una Caja de Ahorro en Dólares.  
+sueldo del socio es superior a $120.000 entonces se le abre adicionalmente a la CA, una Caja de Ahorro en Dólares.
 El banco también puede a pedido abrir una Cuenta Corriente que permite tener hasta 3 chequeras, pero para ello requiere
-ser acreedor de una CA en USD y al mismo tiempo ser Cliente tipo A. 
+ser acreedor de una CA en USD y al mismo tiempo ser Cliente tipo A.
 
-Tipos de clientes: 
+Tipos de clientes:
     - A : Percibir más de $120.000
     - B : Percibir más de $80.000 y menos de $120.000
     - C : Percibir más de $40.000 y menos de $80.000
@@ -52,17 +52,18 @@ Tipos de clientes:
 Tipo de Negocio: cancha de futbol
 ---------------
 
-Alcance: 
+Alcance:
 -------
-En el negocio se alquilan 3 tipos de canchas: de 5, 7 y 11. Existen dos tipos de horarios, el nocturno aumenta en un 20%
-por el gasto de luz. Cada turno se reserva por una hora. Si quien alquila es socio, paga una cuota y tiene un 30% de
-descuento sobre el precio final. Cuota social: $100
+En el negocio se alquilan 3 tipos de canchas: de 5, 7 y 11. Existen dos tipos de horarios: el diurno y el nocturno. Este
+último aumenta en un 20% en el costo de la cancha, por el gasto de luz. Cada turno se reserva por una hora. Si quien
+alquila es socio, y tiene su cuota al día, obtiene un 30% de descuento sobre el precio final. La cuota social es de
+$100.
 
-Se listan a continuación la grilla de horarios: 
+Se listan a continuación la grilla de horarios:
     - de 15 a 19: turno tarde
-    - de 20 a 00: turno noche 
+    - de 20 a 00: turno noche
 
-Tipos de canchas y costo: 
+Tipos de canchas y costo:
     - Cancha de 5:
         * Costo: $500
     - Cancha de 7:
@@ -70,8 +71,9 @@ Tipos de canchas y costo:
     - Cancha de 11:
         * Costo: $1500
 
-Clases: 
+Clases:
     Club (tratarlo como si fuera Biblioteca)
     Canchas (tratarlo como si fueran LIbros)
     Socio
+
 

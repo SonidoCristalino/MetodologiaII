@@ -1,0 +1,158 @@
+
+% ---------------------------------------------------------
+%		Preámbulo del documento
+% ---------------------------------------------------------
+\documentclass[titlepage]{article} %utilizamos el documento de tipo articulo
+
+\usepackage{comment} %util para comentarios largos
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{listings} %Necesario para colorear el código
+\usepackage{xcolor} %Necesario para obtener los colores para el codigo
+\usepackage{libertine} %Necesario para la fuente
+\usepackage[scaled=1.2]{inconsolata} %Necesario para la fuente
+\usepackage{graphicx} % Necesario para poder renderizar imagenes
+\usepackage[export]{adjustbox} %Necesarios para poder obtener el borde rojo de la imagen
+\graphicspath{ {.} }
+
+\definecolor{red}{rgb}{0.6,0,0}
+\definecolor{blue}{rgb}{0,0,0.6}
+\definecolor{green}{rgb}{0,0.5,0}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{cloudwhite}{rgb}{0.9412, 0.9608, 0.8471}
+
+\lstset{
+    language=c,
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    tabsize=1,
+    extendedchars=true,
+    breaklines=true,
+    frame=b,
+    stringstyle=\color{blue}\ttfamily,
+    showspaces=false,
+    showtabs=false,
+    xleftmargin=17pt,
+    framexleftmargin=17pt,
+    framexrightmargin=5pt,
+    framexbottommargin=4pt,
+    commentstyle=\color{green},
+    morecomment=[l]{//}, %use comment-line-style!
+    morecomment=[s]{/*}{*/}, %for multiline comments
+    showstringspaces=false,
+    morekeywords={ abstract, event, new, struct,
+    as, explicit, null, switch,
+    base, extern, object, this,
+    bool, false, operator, throw,
+    break, finally, out, true,
+    byte, fixed, override, try,
+    case, float, params, typeof,
+    catch, for, private, uint,
+    char, foreach, protected, ulong,
+    checked, goto, public, unchecked,
+    class, if, readonly, unsafe,
+    const, implicit, ref, ushort,
+    continue, in, return, using,
+    decimal, int, sbyte, virtual,
+    default, interface, sealed, volatile,
+    delegate, internal, short, void,
+    do, is, sizeof, while,
+    double, lock, stackalloc,
+    else, long, static,
+    enum, namespace, string},
+    keywordstyle=\color{cyan},
+    identifierstyle=\color{red},
+    backgroundcolor=\color{cloudwhite},
+}
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{blue}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+
+
+% ---------------------------------------------------------
+%		Pagina de Presentación
+% ---------------------------------------------------------
+
+% Esto puede ser redefinido en un archivo aparte que contenga las directivas de \autor,\titulo,\subtitulo
+% permitiendo de esta manera solamente incluir el archivo y las directivas. Ejemplo pagina 89 - Latex Cockbook
+
+\author{Monasterio Salvatori Luparello Cantero}
+\title{%
+	Trabajo Práctico\\
+	\large Metodología de la Programación II}
+\date{Octubre del 2019}
+\pagestyle{headings} % para que indique seccion en cada pagina
+
+% ---------------------------------------------------------
+%		Comienza el docuemnto
+% ---------------------------------------------------------
+
+\begin{document}
+
+% Se define cada tamaño de fuente para cada uno de las partes de la página principal
+\font\myfont=cmr12 at 30pt
+\title{{\myfont Metodología de la Programación II\\
+        \vspace{30pt}\Huge Trabajo Práctico Final}}
+
+%Se utiliza vspace para separa el Titulo de lo que vendría a ser el Subtitulo
+
+\font\fuenteAutor=cmr12 at 20pt
+\author{{\fuenteAutor Monasterio Salvatori Luparello Cantero}}
+
+\font\fuenteFecha=cmr12 at 16pt
+\date{{\fuenteFecha Octubre del 2019}}
+
+\vbox{
+	\centering
+	\includegraphics[width=0.5\textwidth]{UNAJ.png}
+	\maketitle
+	}
+
+\newpage
+\tableofcontents % Directiva para que cree el listado de temas
+
+\newpage
+
+\section{Introducción}
+En el siguiente informe se detalla lo realizado como parte del Trabajo Práctico Final de la materia
+\textbf{Metodología de la Programación II} para la \textbf{Comisión nº 2}.
+El presente trabajo se basa en la planificación y modelización de un negocio dedicado al alquiler de canchas de fútbol.
+
+Asimismo el presente trabajo vendrá acompañado para una mayor comprensión de los siguientes ítems:
+\begin{itemize}
+    \item
+        Diagrama de Clases con sus correspondientes detalles y funcionalidades.
+    \item
+        Especificación de la metodología utilizada.
+    \item
+        Especificación de los Patrones de Diseño utilizados.
+    \item
+        Código refactorizado.
+    \item
+        Soportes teóricos en los que se trabajó.
+    \item
+        El código fuente del trabajo realizado.
+\end{itemize}
+
+\section{Alcance del Negocio}
+
+En un negocio llamado ''EstaD10s'' se alquilan 3 tipos de canchas: de 5, 7 y 11. Existen dos tipos de horarios: el
+diurno y el nocturno. Este último aumenta en un 20\% en el costo de la cancha, por el gasto de luz. Cada turno se
+reserva por una hora. Si quien alquila es socio, y tiene su cuota al día, obtiene un 30\% de descuento sobre el precio
+final. La cuota social es de \$100. A continuación se listan los tipos de canchas con sus respectivos precios:
+
+\begin{itemize}
+    \item
+        \textbf{Cancha de 5}: Costo \$500
+    \item
+        \textbf{Cancha de 7}: Costo \$900
+    \item
+        \textbf{Cancha de 11}: Costo \$1500
+\end{itemize}
+
+
+\end{document}
