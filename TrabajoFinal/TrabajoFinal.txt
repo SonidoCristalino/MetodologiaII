@@ -74,6 +74,8 @@ Tipos de canchas y costo:
 Clases:
     Club (tratarlo como si fuera Biblioteca)
     Canchas (tratarlo como si fueran LIbros)
-    Socio
+    Persona (el método resevar() se puede aplicar el self y el super)
+        - Socio
+        - noSocio (porque puede NO ser socio el que alquila la cancha, también puede ser llamada Cliente)
 
 
