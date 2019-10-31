@@ -78,4 +78,16 @@ Clases:
         - Socio
         - noSocio (porque puede NO ser socio el que alquila la cancha, también puede ser llamada Cliente)
 
+Documentar un patrón que SE PODRIA UTILIZAR, no hace falta utilizarlo. 
+
+
+-------------------------------------------------
+Mensaje: reservarCancha()
+
+-----> CLUB: le pregunta ¿SOS SOCIO? 
+    -----> SOCIO : le pregunta ¿cuota al día? 
+            SI: reserva la cancha
+            NO: le cobra la cuota y reserva. 
+
+
 
