@@ -1,0 +1,223 @@
+\documentclass[10pt, spanish]{article}
+
+\usepackage{geometry} %Necesario para poder equiparar los márgenes
+ \geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+     top=20mm,
+}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{listings}
+\usepackage{color}
+
+\lstloadlanguages{C,C++,csh,Java}
+
+\definecolor{red}{rgb}{0.6,0,0}
+\definecolor{blue}{rgb}{0,0,0.6}
+\definecolor{green}{rgb}{0,0.8,0}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{cloudwhite}{rgb}{0.9412, 0.9608, 0.8471}
+
+\lstset{
+    language=csh,
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    tabsize=2,
+    extendedchars=true,
+    breaklines=true,
+    frame=b,
+    stringstyle=\color{blue}\ttfamily,
+    showspaces=false,
+    showtabs=false,
+    xleftmargin=17pt,
+    framexleftmargin=17pt,
+    framexrightmargin=5pt,
+    framexbottommargin=4pt,
+    commentstyle=\color{green},
+    morecomment=[l]{//}, %use comment-line-style!
+    morecomment=[s]{/*}{*/}, %for multiline comments
+    showstringspaces=false,
+    morekeywords={ abstract, event, new, struct,
+    as, explicit, null, switch,
+    base, extern, object, this,
+    bool, false, operator, throw,
+    break, finally, out, true,
+    byte, fixed, override, try,
+    case, float, params, typeof,
+    catch, for, private, uint,
+    char, foreach, protected, ulong,
+    checked, goto, public, unchecked,
+    class, if, readonly, unsafe,
+    const, implicit, ref, ushort,
+    continue, in, return, using,
+    decimal, int, sbyte, virtual,
+    default, interface, sealed, volatile,
+    delegate, internal, short, void,
+    do, is, sizeof, while,
+    double, lock, stackalloc,
+    else, long, static,
+    enum, namespace, string},
+    keywordstyle=\color{cyan},
+    identifierstyle=\color{red},
+    backgroundcolor=\color{cloudwhite},
+}
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{blue}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+
+\author{Emiliano Salvatori}
+\title{Metodología de la programación II \\
+    \large Practica III}
+\date{Septiembre 2019}
+\pagestyle{headings}
+
+\begin{document}
+\maketitle
+
+
+% ----------------------------------------------------------------------
+%                       INTRODUCION
+% ----------------------------------------------------------------------
+\section{Practica III}
+
+\subsection*{Programación Extrema (2da Parte)}
+
+\subsubsection{¿Qué participación tiene el cliente en la metodología XP? ¿qué tareas debe realizar?}
+
+Uno de los requisitos de XP es tener al cliente disponible, no sólo para ayudar al equipo de desarrollo, sino para ser
+parte del mismo. Todas las fases de XP requieren comunicación con el cliente.
+
+%\footnote{https://es.ryte.com/wiki/Desarrollo\textbackslash{}\%C3\%81gil\textbackslash{}de\textbackslash{}Software}
+
+\subsubsection{¿Cuál es el objetivo de utilizar un estándar de codificación?}
+
+El objetivo de los Estándares de Codificación es que todos los programadores deban escribir y documentar el código en la
+misma manera, ya que estoy ayuda a mantener el código legible y fácil de mantener y refactorizar.
+
+\subsubsection{¿En qué momento del desarrollo de un proyecto se definen los test de prueba?}
+
+XP propone un modelo inverso a las metodologías tradicionales, en el cual primero se escriben los test que el sistema
+debe pasar.  El desarrollo debe ser el mínimo necesario para pasar las pruebas previamente definidas.
+El desarrollo debe ser el mínimo necesario para pasar las pruebas previamente definidas. La definición de estos test al
+comienzo condiciona y dirige el desarrollo.
+
+\subsubsection{¿Cuáles son las ventajas de la programación en parejas?}
+
+Las ventajas son las siguientes:
+\begin{itemize}
+    \item
+        La mayoría de los errores se descubren en tiempo de codificación, dado que el código es permanentemente revisado
+        por dos personas.
+    \item
+        La cantidad de defectos encontrados en las pruebas es estadísticamente menor.
+    \item
+        Los diseños son mejores y el código más corto.
+    \item
+        El equipo resuelve problemas en forma más rápida.
+    \item
+        Las personas aprenden significativamente más, acerca del sistema,y acerca del desarrollo de software.
+    \item
+        El proyecto termina con más personas que conocen los detalles de cada parte del código.
+    \item
+        Las personas aprenden a trabajar juntas, generando mejor dinámica de grupo y haciendo que la información fluya
+        rápidamente.
+    \item
+        Las personas disfrutan más de su trabajo.
+
+\end{itemize}
+
+\subsubsection{¿Qué es la integración secuencial?}
+
+La integración secuencial se basa en que el equipo de desarrollo necesita trabajar con siempre con la última versión
+disponible en el proyecto. Realizar cambios o mejoras sobre versiones antiguas causan graves problemas, y retrasan al
+proyecto.
+
+\subsubsection{¿Cuánto tiempo le dedica el equipo de trabajo por semana al desarrollo de un proyecto?}
+
+Tradicionalmente esto se denominaba ''semana de 40 horas''. Sin embargo, lo importante para XP no es si se trabajan 30, 40
+ó 50 horas por semana, sino planificar el trabajo de manera que se pueda mentener un ritmo constante y razonable, sin
+sobrecargar al equipo.
+
+\subsubsection{¿Qué ocurre si un proyecto se retrasa?}
+
+Según XP si un proyecto se retrasa, no debería de trabajar tiempo extra ya que desmotiva al grupo y es
+contraproducente, ya que impacta en la calidad del producto. En la medida de lo posible, se debería renegociar el plan
+de entregas realizando una nueva reunión de planificación con el cliente, los desarrolladores y los gerentes.  Además,
+agregar más desarrolladores en proyectos ya avanzados no siempre resuelve el problema o acelera el progreso.
+
+\subsubsection{Mencione los cuatro valores que destacan los estándares XP}
+
+Los estándares de XP destacan estos 4 valores:
+\begin{itemize}
+    \item
+        \textbf{Simplicidad}: hacer exactamente lo que se ha pedido, no más.
+    \item
+        \textbf{Comunicación}: la comunicación es fundamental, por lo que el diálogo cara a cara entre desarrolladores, gerentes
+        y ususarios es el medio básico de comunicación.
+    \item
+        \textbf{Retroalimentación}: Siempre hay que tener en cuenta la valoración o feedback del cliente una vez que se hace una
+        entrega, e intentar mejorar haciendo cambios en el proceso si es necesario.
+    \item
+        \textbf{Coraje}: Se trata de que el equipo asuma la responsabilidad de su trabajo, tanto si es un éxito como un fracaso,
+        además de ser emprendedor a la hora de implementar cambios en la aplicación,por ejemplo con refactorizaciones.
+\end{itemize}
+
+\subsubsection{¿Quiénes desempeñan roles en la Programación extrema?}
+
+La programación extrema implica la existencia de roles, que normalmente son:
+
+\begin{itemize}
+    \item
+        Cliente
+    \item
+        Programador
+    \item
+        Encargado de pruebas (tester)
+    \item
+        Encargado de seguimiento (tracker)
+    \item
+        Entrenador (coach)
+    \item
+        Gestor (big boss)
+\end{itemize}
+
+\subsubsection{¿Cuáles son las tareas que desarrolla el programador?}
+
+Una vez que se han comprendido las historias de usuario, XP propone adjudicar a los programadores la responsabilidad de
+tomar decisiones técnicas.
+Los desarrolladores estiman el tiempo que les va a llevar cada historia de usuario y las transforman en código.
+
+\subsubsection{¿Cuáles son las tareas del tester?}
+
+El tester ayuda al cliente a definir y escribir las  pruebas de aceptación de las historias de usuario. Es responsable
+de realizar periódicamente las pruebas e informar de los resultados al equipo.
+
+\subsubsection{¿Quién es el encargado de medir la velocidad del equipo?}
+
+El encargado de medir la velocidad del equipo es el Encargado de seguimiento. Para realizar esta tarea, el Encargado
+pregunta uno por uno a los desarrolladores cuántas tareas ha completado.
+El mejor procedimiento es preguntárselo en persona, en un ambiente informal y distendido. La sinceridad es fundamental
+por parte de los desarrolladores, y el encargado de seguimiento no debe entrar en valoraciones. Esta métrica ayuda a
+controlar el flujo del proyecto en posteriores.
+
+\subsubsection{¿Quién desempeña el rol del Coach?}
+
+El encargado de desempeñar el rol de Entrenador (Coach) es alguien que tenga la experiencia de haber trabajado con éstas
+prácticas y las pueda llevar a cabo y comunicarlas al equipo. Se requiere que sea alguien de experiencia ya que se deben
+implementar las prácticas de forma consistente y superar los obstáculos que vayan apareciendo en el proyecto.
+
+\subsubsection{¿El cliente puede asumir el rol del Gestor?}
+
+El big boss es el gerente del proyecto. Debe tener una idea general del proyecto y estar familiarizado con su estado,
+por eso es que el cliente también puede asumir el rol de Gestor, ya que él como ningún otro está capacitado para tener
+esta visión del proyecto que requiere la metodología XP.
+
+\end{document}
+

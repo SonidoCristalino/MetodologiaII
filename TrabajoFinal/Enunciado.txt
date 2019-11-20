@@ -1,0 +1,32 @@
+----------------------------------------
+        Cancha de Fútbol
+----------------------------------------
+
+Tipo de Negocio: Cancha de Futbol
+---------------
+
+Alcance:
+--------
+En un negocio llamado ''EstaD10s'' se alquilan 3 tipos de canchas: de 5, 7 y 11. Existen dos tipos de horarios: el
+diurno y el nocturno. Este último aumenta en un 20\% en el costo de la cancha, por el gasto de luz. Cada turno se
+reserva por una hora. Si quien alquila es socio, y tiene su cuota al día, obtiene un 30% de descuento sobre el precio
+final. La cuota social es de $100. A continuación se listan los tipos de canchas con sus respectivos precios:
+
+Tipos de canchas y costo:
+    - Cancha de 5:
+        * Costo: $500
+    - Cancha de 7:
+        * Costo: $900
+    - Cancha de 11:
+        * Costo: $1500
+
+Posibles Clases a implementar:
+-----------------------------
+    - Club (tratarlo como si fuera Biblioteca)
+    - Canchas (tratarlo como si fueran LIbros)
+    - Persona (el método resevar() se puede aplicar el Self y el Super visto en la clase del 22/10)
+        * Socio : Hereda de Persona. En caso de reservar alguna cancha, y no ser deudor de la cuota mensual, es posible
+        obtener un descuento del 30%
+        * noSocio : Hereda de Persona. Puede NO ser socio el que alquila la cancha, también puede ser llamada Cliente.
+        Por lo que al llamar al método reservar(), será distinto para la clase noSocio que para la clase Socio.
+

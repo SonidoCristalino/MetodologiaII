@@ -1,0 +1,235 @@
+\documentclass[10pt, spanish]{article}
+
+\usepackage{geometry} %Necesario para poder equiparar los márgenes
+ \geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+     top=20mm,
+}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx} % Necesario para poder renderizar imagenes
+\usepackage{tabularx}   %Necesario para poner la orientacion de {tabular} en 'medio'
+
+\lstloadlanguages{C,C++,csh,Java}
+
+\definecolor{red}{rgb}{0.6,0,0}
+\definecolor{blue}{rgb}{0,0,0.6}
+\definecolor{green}{rgb}{0,0.8,0}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{cloudwhite}{rgb}{0.9412, 0.9608, 0.8471}
+
+\lstset{
+    language=csh,
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    tabsize=2,
+    extendedchars=true,
+    breaklines=true,
+    frame=b,
+    stringstyle=\color{blue}\ttfamily,
+    showspaces=false,
+    showtabs=false,
+    xleftmargin=17pt,
+    framexleftmargin=17pt,
+    framexrightmargin=5pt,
+    framexbottommargin=4pt,
+    commentstyle=\color{green},
+    morecomment=[l]{//}, %use comment-line-style!
+    morecomment=[s]{/*}{*/}, %for multiline comments
+    showstringspaces=false,
+    morekeywords={ abstract, event, new, struct,
+    as, explicit, null, switch,
+    base, extern, object, this,
+    bool, false, operator, throw,
+    break, finally, out, true,
+    byte, fixed, override, try,
+    case, float, params, typeof,
+    catch, for, private, uint,
+    char, foreach, protected, ulong,
+    checked, goto, public, unchecked,
+    class, if, readonly, unsafe,
+    const, implicit, ref, ushort,
+    continue, in, return, using,
+    decimal, int, sbyte, virtual,
+    default, interface, sealed, volatile,
+    delegate, internal, short, void,
+    do, is, sizeof, while,
+    double, lock, stackalloc,
+    else, long, static,
+    enum, namespace, string},
+    keywordstyle=\color{cyan},
+    identifierstyle=\color{red},
+    backgroundcolor=\color{cloudwhite},
+}
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{blue}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+
+% ----------------------------------------------------------------------
+%                       PRESENTACION
+% ----------------------------------------------------------------------
+
+\author{Emiliano Salvatori}
+\title{Metodología de la programación II \\
+    \large Practica IX}
+\date{Octubre 2019}
+\pagestyle{headings}
+
+\begin{document}
+\maketitle
+
+% ----------------------------------------------------------------------
+%                       INTRODUCION
+% ----------------------------------------------------------------------
+\section{Practica IX}
+
+\subsection*{Framework}
+
+Responda las siguientes preguntas e indique las fuentes de información que utilizó.
+
+\subsubsection*{¿Cómo podría definir lo que es un Patrón?}
+
+Un patrón de diseño, en el ámbito del desarrollo del software, resulta ser una solución a un problema de diseño. Para
+que una solución sea considerada un patrón debe poseer ciertas características. Una de ellas es que debe haber
+comprobado su efectividad resolviendo problemas similares en ocasiones anteriores. Otra es que debe ser reutilizable, lo
+que significa que es aplicable a diferentes problemas de diseño en distintas circunstancias.
+\footnote{https://es.wikipedia.org/wiki/Patrónn\_de\_diseño}
+
+\subsubsection*{¿Cuál es su utilidad?}
+
+Los Patrones de Diseño, facilitan la reutilización de diseños y arquitecturas de software que han tenido éxito. Son
+soluciones que han sido testeadas en ocasiones anteriores y pueden ser reutilizables para poder dar solución a la misma
+calidad de problemas.
+
+\subsubsection*{¿Qué características tiene?}
+Un patrón:
+\begin{itemize}
+    \item
+        Tiene un nombre.
+    \item
+        Es una solución a un problema en un contexto particular recurrente.
+\end{itemize}
+
+\subsubsection*{Describa brevemente cuáles serían sus motivaciones para utilziar un patrón}
+
+Alguna de las motivaciones para utilizarlos pueden ser las siguientes:
+\begin{itemize}
+    \item
+        Capturan la experiencia y la hacen accesible a los no expertos.
+    \item
+        Los nombres de patrones forman un vocabulario que ayuda a los desarrolladores a comunicarse mejor.
+    \item
+        Un sistema es comprendido más rápidamente cuando está documentado con los patrones que usa.
+    \item
+        Los patrones pueden ser la base de un manual de ingeniería de software.
+    \item
+        Facilitan la reestructuración de un sistema tanto si fue o no concebido con patrones en mente.
+\end{itemize}
+
+\subsubsection*{¿Qué es lo que diferencia a un Patrón de un Framework?}
+
+Se listan a continuación las características de los Patrones de Diseño:
+\begin{itemize}
+    \item
+        Las descripciones de patrones suelen ser independientes de los detalles de implementación o del lenguaje de programación
+        (salvo ejemplos usados en su descripción).
+    \item
+        Los patrones de diseño son elementos arquitecturales más pequeños que los frameworks.
+            \begin{itemize}
+                \item
+                    Un framework incorpora varios patrones
+                \item
+                    Los patrones se pueden usar para documentar frameworks.
+            \end{itemize}
+\end{itemize}
+
+Se listan a continuación las características de los Frameworks:
+\begin{itemize}
+    \item
+        Los frameworks están implementados en un lenguaje de programación, y pueden ser ejecutados y reutilizados directamente.
+    \item
+        Los patrones de diseño están menos especializados que los frameworks.
+        \begin{itemize}
+            \item
+                Los frameworks siempre se aplican a un dominio de aplicación particular.
+        \end{itemize}
+    \item
+        Un Framework ofrece un conjunto integrado de funcionalidad específica de un dominio.
+    \item
+        Un Framework es una aplicación medio acabada.
+    \item
+        Las aplicaciones completas se desarrollan mediante herencia, e instanciando componentes parametrizados del
+        framework.
+\end{itemize}
+
+\subsubsection*{¿Qué tipos de Patrones Existen?}
+
+Según el nivel de abstracción los patrones pueden clasificarse de la siguiente manera
+\begin{itemize}
+    \item
+        Patrones arquitecturales.
+    \item
+        Patrones de \emph{Diseño}.
+    \item
+        Patrones elementales.
+\end{itemize}
+
+\subsubsection*{¿Cómo se Clasifican los Patrones de Diseño?}
+Los Patrones de Diseño se clasifican en:
+\begin{itemize}
+    \item
+        \textbf{Patrones de Creación}: Tratan sobre la inicialización y configuración de clases y objetos
+    \item
+        \textbf{Patrones Estructurales}: Tratan de desacoplar la interfaz e implementación de clases y objetos.
+    \item
+        \textbf{Patrones de Comportamiento}: Tratan las interacciones dinámicas entre sociedades de clases y objetos.
+        Responden a la pregunta \emph{¿Cómo interaccionan y se distribuyen responsabilidades los objetos?}.
+\end{itemize}
+
+\subsubsection*{Seleccione un patrón y presente un ejemplo en el que se pueda observar su uso a través de un diagrama de
+clases}
+
+El patrón \textbf{Adapter o Adaptador} se utiliza para transformar una interfaz en otra, de tal modo que una
+clase que no pueda utilizar la primera haga uso de ella a través de la segunda.
+\footnote{https://es.wikipedia.org/wiki/Adaptador\_(patrón\_de\_diseño)}
+
+Es recomendable utilizar el patrón adaptador cuando:
+\begin{itemize}
+    \item
+        Se desea usar una clase existente, y su interfaz no sea igual a la necesitada.
+    \item
+        Cuando se desea crear una clase reutilizable que coopere con clases no relacionadas. Es decir, que las clases no
+        tienen necesariamente interfaces compatibles.
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=90mm,scale=0.3]{imagen1.png}
+\end{center}
+
+\subsubsection*{Seleccione un patrón y describa alguna situación de la vida cotidiana en la que se podría aplicar}
+
+El patrón \textbf{Flyweight (u objeto ligero)} sirve para eliminar o reducir la redundancia cuando tenemos gran cantidad
+de objetos que contienen información idéntica, además de lograr un equilibrio entre flexibilidad y rendimiento (uso de
+recursos). Este permite el uso de un gran número de objetos de grano fino de forma eficiente mediante utilizando el uso
+compartido.
+
+El diagrama para éste patrón sería el siguiente:
+\begin{center}
+\includegraphics[width=90mm,scale=0.3]{imagen2.png}
+\end{center}
+
+Un ejemplo de la vida real podría ser el de la red telefónica pública. En el cual hay diversos componentes, por ejemplo
+nodos de conmutación, que se deben compartir entre los distintos usuarios. Los usuarios no conocen cuántos componentes
+de cada tipo hay disponibles al momento de realizar la llamada. Lo único por lo que se preocupan los usuarios es por
+obtener tono para marcar y efectuar la llamada.
+
+\end{document}

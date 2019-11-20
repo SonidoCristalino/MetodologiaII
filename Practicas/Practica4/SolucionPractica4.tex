@@ -1,0 +1,231 @@
+\documentclass[10pt, spanish]{article}
+
+\usepackage{geometry} %Necesario para poder equiparar los márgenes
+ \geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+     top=20mm,
+}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{listings}
+\usepackage{color}
+
+\lstloadlanguages{C,C++,csh,Java}
+
+\definecolor{red}{rgb}{0.6,0,0}
+\definecolor{blue}{rgb}{0,0,0.6}
+\definecolor{green}{rgb}{0,0.8,0}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{cloudwhite}{rgb}{0.9412, 0.9608, 0.8471}
+
+\lstset{
+    language=csh,
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    tabsize=2,
+    extendedchars=true,
+    breaklines=true,
+    frame=b,
+    stringstyle=\color{blue}\ttfamily,
+    showspaces=false,
+    showtabs=false,
+    xleftmargin=17pt,
+    framexleftmargin=17pt,
+    framexrightmargin=5pt,
+    framexbottommargin=4pt,
+    commentstyle=\color{green},
+    morecomment=[l]{//}, %use comment-line-style!
+    morecomment=[s]{/*}{*/}, %for multiline comments
+    showstringspaces=false,
+    morekeywords={ abstract, event, new, struct,
+    as, explicit, null, switch,
+    base, extern, object, this,
+    bool, false, operator, throw,
+    break, finally, out, true,
+    byte, fixed, override, try,
+    case, float, params, typeof,
+    catch, for, private, uint,
+    char, foreach, protected, ulong,
+    checked, goto, public, unchecked,
+    class, if, readonly, unsafe,
+    const, implicit, ref, ushort,
+    continue, in, return, using,
+    decimal, int, sbyte, virtual,
+    default, interface, sealed, volatile,
+    delegate, internal, short, void,
+    do, is, sizeof, while,
+    double, lock, stackalloc,
+    else, long, static,
+    enum, namespace, string},
+    keywordstyle=\color{cyan},
+    identifierstyle=\color{red},
+    backgroundcolor=\color{cloudwhite},
+}
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{blue}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+
+\author{Emiliano Salvatori}
+\title{Metodología de la programación II \\
+    \large Practica IV}
+\date{Septiembre 2019}
+\pagestyle{headings}
+
+\begin{document}
+\maketitle
+
+
+% ----------------------------------------------------------------------
+%                       INTRODUCION
+% ----------------------------------------------------------------------
+\section{Practica IV}
+
+\subsection*{Scrum (Primera Parte)}
+
+\subsubsection{¿Cuáles son las actividades que plantea la Metodología Scrum?}
+
+\begin{itemize}
+    \item
+        Planificación de la iteración
+    \item
+        Ejecución de la iteración (sprint)
+    \item
+        Reunión diaria de sincronización del equipo
+    \item
+        Demostración de requisitos completados
+    \item
+        Retrospectiva
+    \item
+        Replanificación
+\end{itemize}
+
+%\footnote{https://es.ryte.com/wiki/Desarrollo\textbackslash{}\%C3\%81gil\textbackslash{}de\textbackslash{}Software}
+
+\subsubsection{La planificación de la Iteración, se divide en dos partes:}
+\begin{itemize}
+    \item
+        \textbf{¿Cuánto tiempo se dedica a cada una? }: Normalmente se dedica 4hs a cada una de ellas.
+    \item
+        \textbf{¿Cuál es la responsabilidad del cliente en la planificación de la Iteración?}: El cliente tiene la
+        responsabilidad de presentar al equipo la lista del proyecto priorizados según su necesidad.
+    \item
+        \textbf{¿Cuál es la responsabilidad del equipo de trabajo?}: El equipo examina la lista, pregunta al cliente las
+        dudas que le surgen y selecciona los requisitos más prioritarios que se compromete a completar en la iteración.
+    \item
+        \textbf{¿Cuál es el beneficio de la Planificación de la Iteración? }: Una estimación conjunta es más fiable,
+        dado que tiene en cuenta los diferentes conocimientos, experiencia y habilidades de los integrantes del equipo.
+        Se potencia el compromiso de cada miembro con el equipo:
+        \begin{itemize}
+            \item
+                Es el equipo quien asume la responsabilidad de completar los requisitos que selecciona.
+            \item
+                Es cada persona quien se responsabiliza de realizar las tareas que se le asignen.
+        \end{itemize}
+
+\end{itemize}
+
+\subsubsection{Con respecto a la Ejecución de la iteración (Sprint)}
+\begin{itemize}
+    \item
+        \textbf{¿Cuánto es el tiempo que se dedica a cada iteración? }: Normalmente cada Iteración toma entre 15 a 30
+        días.
+    \item
+        \textbf{¿Qué proporciona cada iteración? }: Cada iteración tiene que proporcionar un resultado completo, un
+        incremento de producto que se pueda entregar al cliente.
+    \item
+        \textbf{¿Qué tarea cumple el Facilitador o Scrum master? }: El facilitador o scrum master se encarga de que el
+        equipo pueda cumplir con su compromiso y de que no se merme su productividad. Elimina los obstáculos que el
+        equipo no puede resolver por sí mismo. Protege al equipo de interrupciones externas que puedan afectar a su
+        compromiso o su productividad.
+    \item
+        \textbf{¿Cuáles son las restricciones en esta actividad? }: La restricción es que no se pueden cambiar los
+        requisitos de la iteración en curso. Esto facilita que el cliente cumpla con su responsabilidad de conocer qué
+        es lo más prioritario a desarrollar, antes de iniciar la iteración.
+    \item
+        \textbf{¿Cuándo puede producirse una terminación anormal? }: Sólo en situaciones muy excepcionales el cliente o
+        el equipo pueden solicitar una terminación anormal de la iteración. Por ejemplo, si el contexto del proyecto
+        cambia tanto que ya no es posible esperar al final de la iteración para aplicar los ajustes.  En esos casos se
+        da por finalizada la iteración y comenzará otra mediante una nueva reunión de planificación de la iteración.
+\end{itemize}
+
+\subsubsection{Durante la reunión diara de sincronización llevada a cabo por el equipo durante la Ejecución de la
+Iteración}
+
+    \begin{itemize}
+        \item
+            \textbf{¿Cuál es su objetivo?}: El objetivo de esta reunión es facilitar la transferencia de información y
+            la colaboración entre los miembros del equipo para aumentar su productividad.
+        \item
+            \textbf{¿Cuál es la responsalidad de cada miembro del equipo?}: Cada miembro del equipo debe responder en un
+            máximo de 15 minutos:
+            \begin{itemize}
+                \item
+                    ¿Qué hice desde la última sincronización?
+                \item
+                    ¿Pude hacer todo lo que tenía planeado?
+                \item
+                    ¿Qué problemas tuve?
+                \item
+                    ¿Qué voy a hacer a partir de este momento?
+                \item
+                    ¿Qué impedimentos tendré para cumplir mis compromisos en esta iteración y en el proyecto?
+            \end{itemize}
+    \end{itemize}
+
+\subsubsection{La demostración de requisitos completados:}
+\begin{itemize}
+    \item
+        \textbf{¿En qué consiste?}:La misma es una reunión informal donde el equipo presenta al cliente los requisitos
+        completados en la iteración, en forma de incremento de producto preparado para ser entregado con el mínimo
+        esfuerzo, haciendo un recorrido por ellos lo más real y cercano posible al objetivo que se pretende cubrir.
+    \item
+        \textbf{¿Cuáles son sus beneficios?}: El cliente puede ver de manera objetiva cómo han sido desarrollados los
+        requisitos que proporcionó, ver si se cumplen sus expectativas, entender más qué es lo que necesita y tomar
+        mejores decisiones respecto al proyecto.
+\end{itemize}
+
+\subsubsection{La actividad Retrospectiva:}
+\begin{itemize}
+    \item
+        \textbf{¿En qué consiste?}: En la retrospectiva, el equipo analiza cómo ha sido su manera de trabajar durante la
+        iteración, qué cosas han funcionado bien, cuáles hay que mejorar, qué cosas quiere probar hacer en la siguiente
+        iteración, qué se ha aprendido y cuáles son los problemas que podrían impedirle progresar adecuadamente, con el
+        objetivo de mejorar de manera continua su productividad.
+    \item
+        \textbf{¿Cuáles son sus beneficios?}: Incrementa la productividad y el aprendizaje del equipo de manera
+        sistemática, iteración a iteración, con resultados a corto plazo.
+\end{itemize}
+
+\subsubsection{La actividad Replanificación del proyecto:}
+\begin{itemize}
+    \item
+        \textbf{¿En qué consiste?}: Durante el transcurso de una iteración, el cliente va trabajando en la lista de
+        requisitos priorizada del proyecto, añadiendo requisitos, modificándolos, eliminándolos, repriorizándolos,
+        cambiando el contenido de iteraciones y definiendo un calendario de entregas que se ajuste mejor a sus nuevas
+        necesidades.
+        Para realizar esta tarea, el cliente colabora con el equipo y obtiene de él la estimación de costos de
+        desarrollo para completar cada requisito.  El equipo ajusta el factor de complejidad, el costo para completar
+        los requisitos y su velocidad de desarrollo en función de la experiencia adquirida hasta ese momento en el
+        proyecto.
+        El equipo sigue trabajando con los requisitos de la iteración en curso, que eran los más prioritarios al iniciar
+        la iteración. No es posible cambiar los requisitos que se desarrollan durante la iteración.  Será hasta después
+        de la iteración en curso que el cliente podrá presentar la nueva lista de requisitos a desarrollar.
+    \item
+        \textbf{¿Cuáles son sus beneficios?}: El cliente puede tomar decisiones con tiempo respecto al progreso del
+        proyecto y posibles desviaciones.  Puede replanificar el proyecto para obtener un nuevo calendario de entregas
+        que cumpla con sus necesidades actuales.
+        El cliente puede incorporar nuevos recursos. También puede cancelar el proyecto con los requisitos completados
+        hasta el momento plenamente operativos, si el beneficio pendiente de obtener es menor que el costo del
+        desarrollo.
+\end{itemize}
+
+
+\end{document}
+
