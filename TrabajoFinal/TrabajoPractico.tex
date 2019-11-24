@@ -104,11 +104,11 @@
 \author{{\fuenteAutor Monasterio Salvatori Luparello Cantero}}
 
 \font\fuenteFecha=cmr12 at 16pt
-\date{{\fuenteFecha Octubre del 2019}}
+\date{{\fuenteFecha Noviembre del 2019}}
 
 \vbox{
 	\centering
-	\includegraphics[width=0.5\textwidth]{UNAJ.png}
+	\includegraphics[width=0.5\textwidth]{Imagenes/UNAJ.png}
 	\maketitle
 	}
 
@@ -140,7 +140,7 @@ Asimismo el presente trabajo vendrá acompañado para una mayor comprensión de los
 
 \section{Alcance del Negocio}
 
-En un club llamado ''Tercer Tiempo'' donde se alquilan 5 canchas para los socios. Todas ellas con el valor de \$200
+En un Club llamado ''Tercer Tiempo'' donde se alquilan 5 canchas para los socios. Todas ellas con el valor de \$200
 cualquiera sea el horario en el que se alquile.
 Sólo es posible operar con los socios que ya estén inscriptos en el club, en caso que no se cuente con la inscripción,
 es posible realizarla al comienzo del proceso.
@@ -156,7 +156,112 @@ También se tiene un módulo de gestión de Datos el cual permite entre otras cosas
         Generar un reporte de las canchas que \textbf{se encuentran} alquiladas.
 \end{itemize}
 
+\section{Diagrama de Clases}
+
+En el siguiente apartado se muestra mediante un esquema gráfico, la distribución de clases que se tuvieron para
+modelizar el negocio:
+
+% Imagen del Diagrama de Clases
+
+\section{Metodologías Ágiles empleadas}
+
+Se decidió por implementar \emph{Kanban} como soporte metodológico, ya que mediante la aplicación \emph{Trello} \footnote{Para
+más información, visitar: https://trello.com/}
+posibilitó trabajar de forma remota, a los cuatro integrantes del equipo.
+
+Como se puede ver a continuación se cargaron las siguiente
+\vspace{5pt}
+\begin{center}
+\includegraphics[width=90mm,scale=0.3]{Imagenes/imagen1.jpeg}
+\end{center}
+
+\subsection{División de tareas}
+
+A lo largo de todo el proyecto, se utilizaron distintas tarjetas en un pizarrón virtual para poder organizar entre los
+cuatro integrantes el trabajo a llevar a cabo. Es por eso que la distribución de las tarjetas y su cometido son los
+siguientes:
+\begin{itemize}
+    \item
+        \textbf{Definición de los mensajes coloquialmente}: Se utilizó el lenguaje coloquial para poder abordar de forma
+        más sencilla las problemáticas que traían consigo cada una de las clases y el modelizado del negocio del Club.
+    \item
+        \textbf{Creación de Clases en Lenguaje UML}: Luego de haber definido los mensajes y las clases que intervendrían
+        en el resultado, se pasó a crear las clases en lenguaje UML; para el cual fue utilizada la aplicación
+        \emph{Draw.io} \footnote{Para más información, visitar: https://www.draw.io/}
+    \item
+        \textbf{Especificar la Metodología Utilizada}: Se requirió utilizar alguna de las Metodologías Ágiles vistas en
+        a lo largo de la cursada. Dado el soporte de la herramienta \emph{Trello} y sus características, se decidió
+        implementar una pizarra al estilo Kanban; asimismo se añadió una especie de \emph{Sprint backlog} para que cada
+        integrante pudisese visualizar de forma gráfica la evolución de su trabajo.
+    \item
+        \textbf{Volcado de Clases en SmallTalk}: Luego de tener las clases y los diagramas que modelizarían el negocio,
+        se llevó a cabo la codificación de las mismas en lenguaje \emph{SmallTalk}
+        \footnote{https://en.wikipedia.org/wiki/Smalltalk}, con asistencia del IDE denominado \emph{Pharo}
+        \footnote{Para más información, visitar: https://pharo.org/}
+    \item
+        \textbf{Documentar Soporte Teórico}: Con la ayuda de la herramienta \emph{Trello} se pudo dar igual seguimiento a
+        todas las tareas realizadas por cada uno de los integrantes del equipo como también al soporte teórico
+        implementado en el Trabajo Práctico.
+    \item
+        \textbf{Especificación del Código Refactorizado}: En muchas ocasiones se tuvo que volver sobre los pasos con
+        respecto a las definiciones de los métodos de acceso a los datos de clase. Estos métodos redefinidos, ya sea por
+        estar por fuera del alcance del método o por complejidades aparejadas a la forma de obtener un comportamiento,
+        se refactorizaron para poder mejorar la calidad del código.
+    \item
+        \textbf{Especificación de Patrones de Diseño}: Si bien el proyecto es bastante pequeño como para poder aplicar
+        Patrones de diseño, se pensaron algunos como para poder en un futuro expendir las funcionalidades del negocio.
+        Se documentaron los posibles Patrones de Diseño a implementar en un futuro.
+\end{itemize}
+
+\section{Soporte teórico implementado}
+
+Como se mencionó anteriormente, la Metodología Ágil escogida por el equipo fue \emph{Kanban}. La misma se implementó
+teniendo en cuenta las siguientes características:
+
+\begin{itemize}
+    \item
+        \textbf{Comenzar con lo actual}: El método Kanban se inicia con las funciones y procesos que ya se tienen y
+        estimula cambios continuos, incrementales y evolutivos al sistema. Es por ello que se partió de un bosquejo
+        simple para esbozar la problemática a modelar para luego irle agregando complejidad a medida que se veía
+        necesario.
+    \item
+        \textbf{Aplicar cambios incrementales}: Todos deben estar de acuerdo en que la manera de hacer mejoras en el
+        sistema es el cambio continuo, gradual y evolutivo.  Los cambios fuertes pueden parecer más eficaces, pero
+        fracasan más debido a la resistencia y el miedo en la organización.
+        El equipo siempre estuvo de acuerdo con los cambios propuestos por los distintos integrantes, para luego
+        consultarlo a la docente.
+    \item
+        \textbf{Respetar lo establecido}: Para facilitar el cambio futuro conviene respetar los roles, responsabilidades
+        y cargos actuales, eliminando los temores iniciales.  Esto permite obtener un mayor apoyo a la iniciativa
+        Kanban.
+    \item
+        \textbf{Liderazgo en todos los niveles}: Kanban promueve acciones de liderazgo desde las personas de bajo rango
+        hasta los gerentes. Esto fue tenido en cuenta a la hora de decidir qué modificar sin tener en cuenta la tarea
+        asignada por la persona.
+\end{itemize}
+
+El equipo se basó por sobre todas las cosas en \textbf{Visualizar el trabajo}. Kanban se base en el desarrollo
+incremental, dividiendo el trabajo en partes.
+Una de las principales aportaciones es que utiliza técnicas visuales para ver la situación de cada tarea, y que
+se representa en pizarras llenas de post-it.
+
+Normalmente cada una de las partes del trabajo se escribe en un post-it y se pega en un pizarron. Los post-it pueden
+tener información variada, aunque en particular deberían tener la estimación de la duración de la tarea. La tarea de
+escribir la ocupación de cada integrante fue llevada a cabo mediante la herramienta Trello.
+
+Así como la metodología Kanban no prescribe roles, ya que tener un papel asignado y las tareas asociadas a dicho papel
+crean una identidad en el individuo, también presentó la posibilidad de que todo el equipo desarrolle todo.
 
 
+Se puede también dar cuenta de que se implementó lo denominado como \emph{Spring Backlog}, el cual es la lista de tareas
+que el equipo elabora como plan para completar los requisitos seleccionados para la iteración y que se compromete a
+demostrar al cliente al finalizar la iteración, en forma de incremento de producto preparado para ser entregado.
+
+En este caso, se puede tomar el Cliente como el docente que estará evaluando la implementación, la documentación
+realizada, como así también los métodos para llevar a cabo el propósito del Trabajo Práctico.
+
+\section{Código Refactorizado}
+
+\section{Patrones de Diseño}
 
 \end{document}
