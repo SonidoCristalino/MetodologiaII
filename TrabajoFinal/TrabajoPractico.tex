@@ -134,14 +134,12 @@ Asimismo el presente trabajo vendrá acompañado para una mayor comprensión de los
         Código refactorizado.
     \item
         Soportes teóricos en los que se trabajó.
-    \item
-        El código fuente del trabajo realizado.
 \end{itemize}
 
 \section{Alcance del Negocio}
 
 En un Club llamado ''Tercer Tiempo'' donde se alquilan 5 canchas para los Clientes. Todas ellas con el valor de \$200
-cualquiera sea el horario. 
+cualquiera sea el horario.
 Sólo es posible operar con los socios que ya estén inscriptos en el club, en caso que no se cuente con la inscripción,
 es posible realizarla al comienzo del proceso.
 
@@ -154,6 +152,9 @@ También se tiene un módulo de gestión de Datos el cual permite entre otras cosas
         Generar un reporte de las canchas que \textbf{no} se encuentran alquiladas.
     \item
         Generar un reporte de las canchas que \textbf{se encuentran} alquiladas.
+    \item
+        Generar un reporte de los socios del Club en un momento determinado.
+
 \end{itemize}
 
 \section{Diagrama de Clases}
@@ -161,33 +162,89 @@ También se tiene un módulo de gestión de Datos el cual permite entre otras cosas
 En el siguiente apartado se muestra mediante un esquema gráfico, la distribución de clases que se tuvieron para
 modelizar el negocio:
 
-% Imagen del Diagrama de Clases
+\vspace{5pt}
+\begin{center}
+\includegraphics[width=100mm,scale=0.3]{Imagenes/imagen2.png}
+\end{center}
+
+\section{Funcionamiento}
+
+Para el modelado del negocio, se pensaron varias estructuras que permitan obtener determinados datos de forma sencilla,
+siendo los siguientes:
+
+\begin{itemize}
+    \item
+        \textbf{Detect}: permite obtener el primer objeto que cumple con la condición suministrada.
+    \item
+        \textbf{Select}: permite seleccionar varios objetos que cumplen con la condición ofrecida.
+    \item
+        \textbf{Reject}: permite seleccionar aquellos objetos que NO cumplen con la condición suministrada.
+    \item
+        \textbf{Collect}: permite generar una colección y ordenarla según el criterio dado por el programador.
+    \item
+        \textbf{Diccionario}: Un diccionario es un conjunto de definiciones que contiene las características
+        lógicas y puntuales de los datos que se van a utilizar en el sistema que se programa.
+\end{itemize}
+
+Se puede visualizar a continuación un pantallazo general de lo obtenido luego de la carga de datos al programa:
+\vspace{5pt}
+\begin{center}
+\includegraphics[width=100mm,scale=0.3]{Imagenes/imagen5.jpg}
+\end{center}
+
+\subsection{Set de datos utilizados}
+
+A continuación se visualiza el set de datos cargados para la exposición del Trabajo Práctico:
+\vspace{5pt}
+\begin{center}
+\includegraphics[width=100mm,scale=0.3]{Imagenes/imagen3.jpg}
+\end{center}
+
+\subsection{Mensajes empleados}
+
+Se visualizan los distintos mensajes que entiende la clase Club y las cláusulas utilizadas para cada uno:
+\vspace{5pt}
+\begin{center}
+\includegraphics[width=100mm,scale=0.3]{Imagenes/imagen4.jpg}
+\end{center}
+
+\subsection{Detect}
+
+Para la implementación de este procedimiento, se utilizó en la definición del método \textbf{nuevaReserva} el cual
+permite generar una nueva reserva consultando las canchas que NO se encuentran alquiladas, es decir, cuyo estado
+Alquilado sea igual a nil.
+
+\subsection{Select}
+
+Para la implementación de la cláusula \emph{Select} se hizo uso de la misma en el método \textbf{verCanchasAlquiladas},
+el cual permite obtener un reporte de las canchas que se encuentran alquiladas por los socios en un momento determinado.
+
+\subsection{Reject}
+
+Para la implementación de la cláusula \emph{Reject} se hizo uso de la misma en el método \textbf{verCanchasNoAlquiladas},
+el cual permite obtener un reporte de las canchas que NO se encuentran alquiladas por los socios en un momento
+determinado.
+
+\subsection{Collect}
+
+La cláusula \emph{Collect} se implementó en el método \textbf{verClientes}, el cual permite generar una colección
+de los Clientes que tiene el Club, de forma ordenada alfabéticamente.
+
+\subsection{Diccionario}
+
+El sistema permite la utilización del método \textbf{verReservas} para saber a qué cliente le corresponde qué cancha. La
+misma permite obtener un reporte obteniendo la cancha alquilada y por quién se encuentra alquilada.
 
 \section{Metodologías Ágiles empleadas}
 
 Se decidió por implementar \emph{Kanban} como soporte metodológico, ya que mediante la aplicación \emph{Trello} \footnote{Para
 más información, visitar: https://trello.com/}
 posibilitó trabajar de forma remota, a los cuatro integrantes del equipo.
-
-Como se puede ver a continuación se cargaron las siguiente
+Como se puede ver a continuación se cargaron las siguientes tareas a realizar por el equipo:
 \vspace{5pt}
 \begin{center}
 \includegraphics[width=90mm,scale=0.3]{Imagenes/imagen1.jpeg}
 \end{center}
-
-\section{Funcionamiento}
-El modelado realiza 
-
-\subsection{Lista ordenada}
-
-En el modelado del sistema, también se tuvo en cuenta un tipo de \textbf{reporte} el cual permite obtener una lista de
-clientes ordenados por nombre. 
-
-\subsection{Diccionario}
-
-El sistema permite asimismo una \textbf{consulta} para saber a qué cliente le corresponde qué cancha. La misma permite
-obtener un reporte obteniendo la cancha alquilada y por quién se encuentra alquilada. 
-
 
 \section{División de tareas}
 
@@ -276,15 +333,37 @@ realizada, como así también los métodos para llevar a cabo el propósito del Trab
 
 \section{Código Refactorizado}
 
-Se mejoró los nombres de las variables más descriptivos. Asimismo se mejoró el código del método \textbf{nuevaReserva}
-que implementa en la clase Club.
+En la etapa del volcado de código, se mejoraron los nombres de muchas variables para hacerlas lo más descriptivas
+posibles.
 
+Asimismo se mejoró el código del método \textbf{nuevaReserva} que implementa en la clase Club. Este fue refactorizado
+debido a que en caso de no encontrarse un objeto que cumpla con las condiciones suministradas, no devolvía nada, por lo
+que se implementó la cláusula \emph{ifNone(\^nil)}, la cual en caso de que no se cumpla con la condición suministrada,
+devuelve nulo.
 
 \section{Framework}
 
-buscar: Magma 
+Ya que la implementación se realizó en el lenguaje \emph{SmallTalk}, se indagó en qué tipo de Frameworks sería el más
+conveniente para poder adaptar el modelo de negocio a las nuevas tecnologías, por lo que se pensó en \emph{Seaside}, el
+cual proporciona un conjunto de abstracciones en capas sobre HTTP y HTML que le permiten crear aplicaciones web
+altamente interactivas de forma rápida, reutilizable y mantenible.
+\footnote{https://www.bestwebframeworks.com/web-framework-review/smalltalk/106/seaside/}
 
+\section{Escalabilidad}
+
+Como parte del proyecto, también se pensó en dejar abierto el código para futuras funcionalidades, permitiendo la
+escalabilidad al implementar otras clases como ser la de \textbf{Socio}, la cual tiene como dato miembro la variable
+\emph{esDeudor}, que permite saber si el mismo está al día con la cuota del club o no.
+
+En caso de que no lo esté, también se pensó que se puede aplicar una multa, pagando más dinero en el alquiler de las
+canchas.
 
 \section{Patrones de Diseño}
+
+Siguiendo la idea que hay detrás de todo Patrón de Diseño, el cual es \emph{una forma reutilizable de resolver un
+problema común}, y teniendo en metente lo mencionado en el apartado anterior sobre la Escalabilidad, se pensó en que se
+puede aplicar al modelado del negocio de las canchas el patrón \textbf{Decorator}, el cual permitiría añadir
+funcionalidad extra a un objeto (en este caso las canchas y los descuentos para socios NO deudores) sin modificar el
+comportamiento del resto de objetos del mismo tipo (es decir, la creación que se está utilizando hasta el momento).
 
 \end{document}
