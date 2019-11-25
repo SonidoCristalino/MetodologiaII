@@ -140,8 +140,8 @@ Asimismo el presente trabajo vendrá acompañado para una mayor comprensión de los
 
 \section{Alcance del Negocio}
 
-En un Club llamado ''Tercer Tiempo'' donde se alquilan 5 canchas para los socios. Todas ellas con el valor de \$200
-cualquiera sea el horario en el que se alquile.
+En un Club llamado ''Tercer Tiempo'' donde se alquilan 5 canchas para los Clientes. Todas ellas con el valor de \$200
+cualquiera sea el horario. 
 Sólo es posible operar con los socios que ya estén inscriptos en el club, en caso que no se cuente con la inscripción,
 es posible realizarla al comienzo del proceso.
 
@@ -175,7 +175,21 @@ Como se puede ver a continuación se cargaron las siguiente
 \includegraphics[width=90mm,scale=0.3]{Imagenes/imagen1.jpeg}
 \end{center}
 
-\subsection{División de tareas}
+\section{Funcionamiento}
+El modelado realiza 
+
+\subsection{Lista ordenada}
+
+En el modelado del sistema, también se tuvo en cuenta un tipo de \textbf{reporte} el cual permite obtener una lista de
+clientes ordenados por nombre. 
+
+\subsection{Diccionario}
+
+El sistema permite asimismo una \textbf{consulta} para saber a qué cliente le corresponde qué cancha. La misma permite
+obtener un reporte obteniendo la cancha alquilada y por quién se encuentra alquilada. 
+
+
+\section{División de tareas}
 
 A lo largo de todo el proyecto, se utilizaron distintas tarjetas en un pizarrón virtual para poder organizar entre los
 cuatro integrantes el trabajo a llevar a cabo. Es por eso que la distribución de las tarjetas y su cometido son los
@@ -199,8 +213,8 @@ siguientes:
         \footnote{https://en.wikipedia.org/wiki/Smalltalk}, con asistencia del IDE denominado \emph{Pharo}
         \footnote{Para más información, visitar: https://pharo.org/}
     \item
-        \textbf{Documentar Soporte Teórico}: Con la ayuda de la herramienta \emph{Trello} se pudo dar igual seguimiento a
-        todas las tareas realizadas por cada uno de los integrantes del equipo como también al soporte teórico
+        \textbf{Documentar Soporte Teórico}: Con la ayuda de la herramienta \emph{Trello} se pudo dar igual seguimiento
+        a todas las tareas realizadas por cada uno de los integrantes del equipo como también al soporte teórico
         implementado en el Trabajo Práctico.
     \item
         \textbf{Especificación del Código Refactorizado}: En muchas ocasiones se tuvo que volver sobre los pasos con
@@ -261,6 +275,15 @@ En este caso, se puede tomar el Cliente como el docente que estará evaluando la 
 realizada, como así también los métodos para llevar a cabo el propósito del Trabajo Práctico.
 
 \section{Código Refactorizado}
+
+Se mejoró los nombres de las variables más descriptivos. Asimismo se mejoró el código del método \textbf{nuevaReserva}
+que implementa en la clase Club.
+
+
+\section{Framework}
+
+buscar: Magma 
+
 
 \section{Patrones de Diseño}
 
