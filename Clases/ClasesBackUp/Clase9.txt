@@ -1,0 +1,68 @@
+
+Reflexión: 
+---------
+Se toma la definición dentro de POO [falta la primera 10 minutos de la clase]
+
+Integración Continua: 
+--------------------
+Probar todo el tiempo. Es como que cada cierto tiempo se hace forma automatizada, de TODO los códigos, de todo el
+programa, más cuando se utiliza sobre repositorios. Cuando se trabaj sobre versiones distintas, entonces cada cierto
+tiempo debe estar probado absolutamente; se hacen pruebas para asegurar de todo lo que está subido al repo, es correcto,
+       que se están basando en código estable. La idea es ir modificando las cosas mediante que surjen los problemas. A
+       diferencia de hace tiempo atrás, que se esperaba hasta el final. La idea es ir mejorando las cosas a medida que
+       se van surgiendo, con el tema de las metologías ágiles se superó esto, se dejó atrás.  Las pruebas antes se
+       dejaban para lo último, ahora se hacen sobre el comienzo, integración continua: se utiliza para detectar errores
+       de forma temprana.  Se hace lo más a menudo posible. Se compila el código cada cierto tiempo, se hacen las
+       pruebas y se hacen informes acerca de eso.  La corrección de errores se hacen de forma dinámica, a medida que se
+       van detectando bugs. 
+
+Framework:
+---------
+Estudiar a partir de la página 42. 
+    Es un esquema (un esqueleto, un patrón) para el desarrollo y/o la implementación de una aplicación.  
+    Es un entorno o ambiente de trabajo para el desarrollo de aplicaciones. Dependiendo del lenguaje integra componentes
+    que facilitan el desarrollo de aplicaciones como: 
+        - soportes de programa. 
+        - bibliotecas. 
+        - plantillas, etc. 
+
+    - Definición, para qué sirve, contiene VM, bibliotecas. 
+    - Su uso depende de las necesidades de cada proyecto y el gusto del desarrollador. También depende del contexto en
+    que se utilice. 
+    - La arquitectura más utilizada MVC. 
+    - Cuáles son las características, a nivel general. 
+    - Qué es la Internacionalización: permite varios idiomas. 
+    - Ventajas: esqueleto, facilita el desarrollo colaborativo, menos propenso de occurrir errores. 
+    - ¿Cuáles son las razones para NO utilizar ningún framework? El tiempo de aprendizaje, generación de más, métodos
+    que no se utilizán. Depende las circunstancias de toda la aplicación. 
+        Las razones pueden ser:
+            * Aplicación pequeña
+            * Falta de conocimiento de un framework que se adapte a sus necesidades,
+            * Falta de tiempo para seleccionar y utilizar uno
+    - ¿Depende del lenguaje? SI. 
+    - ¿Qué es un patrón? 
+        * Solución a un problema que se repite, que se reutiliza y que ya está recontra chequedo. Está bien visto en la
+        POO el reuso, todo lo que está ya está solucionado es bueno reutilizarlo, porque está chequedao previamente. 
+        * No es dependiente del lenguaje, pero se escriben en un lenguaje; es un modelo que se pueden tralsadar a otros
+        lenguajes, a diferencia del framework que NO es adaptable a otros lenguajes, esa es la diferencia. 
+        * Patrones orientados al cambio, son más pequeños que un framework. Sirven para poder documentar frameworks,
+        siempre se aplican a un dominio en particular. 
+        * Frameworks: reutilización de arquitectura y software. Los patrones están dentro de un framework, pero NO al
+        revés. 
+
+Refactorización: 
+---------------
+Se trata de llegar a un código más simple, se modifica sin afectar el comportamiento o la funcionalidad. Para
+simplificar y poder mejorar la lectura y TODO según la profesora ¿?. 
+¿Cuándo refactorizar? Generalemnte cuando se agrega funcionalidad nueva; se puede hacer siempre, todo el tiempo, pero es
+mejor que el código esté testeado y probado y luego mejorarlo continuamente. 
+Se aconseja que uno conozca los "malos errores" y poder resolverlos mediante la refactorización, como las clases que no
+se usan, que se definieron y quedaron desperdigadas, por lo que se aconseja que uno no espere en que está todo ya hecho,
+sino que haya una continuidad. 
+Se puede programar de manera eficiente refactorizando de manera eficiente, el tema es conocer los lineamientos de código
+de cada uno de los desarrollos. 
+
+Síntomas NO, hay que saber que simplificar todo el tiempo tiene que estar probando que la funcionalidad se conserve [muy
+importante] que existen técnicas para reconocer esos errores, que indican qu eel código deben refactorizarse, las
+técnicas de reconocimiento. Existen técnicas para encontrar y solucionar esos problemas. 
+Refactorizar

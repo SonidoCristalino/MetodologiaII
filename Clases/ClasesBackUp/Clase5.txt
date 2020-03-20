@@ -1,0 +1,203 @@
+-----
+Scrum: 
+-----
+IMPORTANTE: De scrum lo más importante son las etapas y lo que salen de estas: el gráfico, las etapas, la relación con
+el cliente y las etapas. 
+
+Parcial: 1ro de OCtubre: 17.30hs. Teórico/Práctico
+    24 de Octubre repaso
+
+    Lo que se toma en la parte Practico: 
+    *) Jerarquía de clases
+    *) Diagrama de clases
+    *) Diagrama de secuencia 
+
+No hay que darle pelota a la historia. Hay que hacer algún tipo de apunte con lo que tiene que ver con los roles, y
+demás cosas.                               
+Lo que interesa las fases que son propias de Scrum. 
+
+El cliente no participa activamente durante la iteración ¿por qué? Participa en la planificación de la iteración, XP es
+más flexible, scrum NO. En scrum debe decirid el cliente lo que requiere para definir, por lo que lo compromete de forma
+más enérgica para poder terminar de entregar tangible, para que pida las cosas que realmente necesite. 
+
+Planificación de la iteración: 
+Lista de requisitos del proyecto lo da el cliente. 
+El equipo toma las cosas y compromete a realizarlas. Se llega a un acuerdo entre lo que se pide y lo que se va a
+desarrollar. 
+
+De la segunda parte d la reunión sale la Lista de tareas de iteración. Se realiza una estimación conjunta del esfuerzo
+necesario. Cada uno se compromete a las tareas que SOLO PUEDE realizar. Es una diferencia con respecto a otras
+metodlogías, cada miembor acá se compromete más porque uno indicvidualmente se compromete a terminar algo. 
+El Equipo asume la responsablidad, cada persona se responsabliliza las tareas que se asigna. 
+
+Ejecución del sprint (iteración): 2 a 4 semanas(sin diferencia de XP). 
+Se entrega un todo como XP. 
+
+Las reuniones de sincronización es igual en XP, son como las diarias en XP. Cada uno dice lo que hizo, lo que le falta
+hacer, etc. Algunas empresas son más estrictos en aquellas personas que no logran los objetivos a los que se
+comprometieron. El tiempo máximo es de 15 minutos (todo esto es igual en XP). 
+
+Facilitador /scrum master: quita obstáculos para euq eel equipo trabaje más rápido y sin problemas, sin conflictos
+externos ni tampoco internos. De que se no merme su productividad. 
+
+Restricciones: 
+No se pueden cambiar los pedidos. ¿Cuándo se puede cambiar? Cuando ya no tiene sentido cuando por ejemplo se cambia el
+contexto, cuando es más perjudicial seguir trabajando en la iteración que cambiar de rumbo. (terminación anormal). 
+Comprometerse al cliente facilita que se cumpla con su responsablidad de conocer qué es lo más prioritario. 
+
+Es lo característico de Scrum que permite visualizar el avance delequipo: el gráfico burndown chart. Es un gráfico qu
+epermie saber dónde se está posicionado, hacia dónde se puede entregar, cuál es la fecha que uno se comprometió, qué se
+puede hacer para cumplir conas fechas estipuladas, se pueden hacer todas estas simulaciones. Sólo mirando el gráfico se
+puede saber en qué etapa estás, si se está atrasado con lo squ ese comprometió, se puede sacar las las desiciones que s
+sacaron. El grafico permite hacer las correciones necesarias. 
+
+Lista de requisitos -> el cliente
+Lisa de tareas -> la define el equipo 
+
+Demostracion de requisitos: se le muestra los resultados obtenidos de la iteración al cliente, a muy alto nivel. El
+cliente en esta etapa realiza las modificaciones pertinentes que él requiere. ESE es el momento que el cliente puede
+realizar alguna planificación en los cambios y eso scambios serán de la proxima iteración. 
+
+Se puede ir viendo en cada iteración 
+
+Retrospectiva: intervienen el equipo realizando una crítica para mejorar en las siguientes etapas. El facilitador se
+encarga de ser una persona que permite limar asperezas. 
+
+Replanificación del proyecto: 
+En un principio se puede haber pensado determinadas pero en este momento el cliente puede replanificar todos los
+requisitos. 
+
+Si en el medio de la iteración cambió algo, no se puede cambiar, sino hasta el final. Sólo en el final se puede
+re-planificar, se puede abortar cuando no tiene sentido seguir. 
+
+El equipo debe tener una estimación de lo que lleva cada tarea, de cada uno delos requisitos. 
+
+De scrum lo más importante son las etapas y lo que salen de estas: el gráfico, las etapas, la relación con el cliente y
+las etapas. 
+
+El cliente puede cancelar todo el proyecto en caso de perder dinero si siguen en pie los desarrollos. 
+
+-------------
+Segunda parte
+-------------
+Ejercicio Bibliteca. 
+
+Clase biblioteca
+Subclase de object
+Variables de instancia: nombre libros
+
+Métodos de clase:   //recordar que debajo de un comentario se debería de dejar un renglon. 
+----------------
+>> crearBiblio: unNom
+" Retorna una instancia de Biblioteca inicializada"
+^(self new) unBiblioNom: unNom
+
+Métodos de Instancia: 
+--------------------
+>> iniBiblio: unNom
+"Inicializa una instancia de Bibilioteca"
+nombre:=unNom
+libros:=OrderCollection New 
+
+>> verNombre
+" Retorna el nombre de la biblioteca"
+^nombre
+
+>> modiUnNomb
+" Modifica un el nombre de la biblioteca"
+nombre:= unLib
+
+>> agregarLibro: unLibro
+"Agrega un libro en Biblioteca"
+libros add: unLibro
+
+>>existeLibro:unLibro
+"Retorna verdadero si el libro está en la biblioteca, Falso en caso contrario"
+^libros includes : unLibro 
+
+>> eliminarLibro: unLibro
+"Elimina un libro de la biblioteca"
+libros removes: unLibro
+
+>> esVacia
+" retorna verdadero si la bilblioteca no tiene libros, Falso en caso contrario"
+^libros isEmpty
+
+>> tamanio
+" retorna la cantidad de libros""
+^libros size
+
+>> verTodosLosLibros
+"Retorna los libros de la Biblioteca"
+^libros
+
+>> buscarLibro: unISBN
+"Retorna el libro con ISBN unISBN si está en la biblioteca, nill en caso contrario"
+|hallado i|
+hallado:=false.
+i:=1. 
+
+//[(i <= libros size)         se puede utilizar también (self tamanio)
+//[(i <= self tamanio)        se utiliza un método de la clase Biblioteca, self el receptor
+
+[(i <= libros size) & (hallado = false)] whileTrue:[ (libros at: i)  verIsbn = unIsbn
+                                ifTrue:[ hallado := true]
+                                ifFalse[i := i +1]]
+
+                                (hallado = true) ifTrue:[ ^ libros at:i ]
+                                                ifFalse:[ ^ nil.]
+
+Aplicación:
+-----------
+
+|b n l is t a e|
+
+/*
+    Las letras corresponden a: 
+        Bibliteca
+        Nombre
+        Libro
+        Isbn
+        Titulo
+        Autor
+        Editor
+*/
+
+n=UIManagener depullrequest:"Ingrese nombre"    //¿Cómo se hace para buscar 
+b:=Biblioteca crearBiblioNom:n                  //acá ya se tiene la instancia creada. 
+
+1 to: 5 do:[:i]
+    is:= UIMAnager depullrequest: "Ingrese isbn:"
+    t:= UIMAnager depullrequest: "Ingrese título:"
+    a:= UIMAnager depullrequest: "Ingrese autor:"
+    e:= UIMAnager depullrequest: "Ingrese Editor:"
+    l:= crearLibroIsbn: is, tit:t aut:a edit:e 
+    b agregarLibro: l.]
+
+//En la carga se debe hacer con el while, y luego comentarlo mediante la carga de la siguiente manera: 
+    l:= libro crearLibroIsbn:a tit:"A" aut:"Sabato" edit:"Editorial"
+// con 5 lineas distintas ¿por qué? no sé
+
+b inspect 
+/*
+   el inspect devuelve un array (unlib, unlib, unlib, unlib, unlib)
+   Muestra una ventana, y dice que b es una instanacia de biblioteca: 
+   Nombre = Dardo Rocha 
+   Libros = (unlib, unlib, unlib, unlib, unlib)
+
+Informar los títulos de los libros que NO están prestados. Supuestamente existe una variable que tiene el estado, si es
+prestado o no. 
+¿Qué se tiene que hacer? Recorrer todos los libros con su estado. ¿Cómo se hace para recorrer? Utilizando el at. 
+#(3 4 5) at:3 put:2 
+#(3 4 5) at:3 ---> se usa sólo el at. Se debe usar sólo sobre una colección, at lo entienden solo la colección, por lo
+tanto B (bilbioteca) no es una colección pero SI tiene como parte de sus elementos que si son los libros. 
+
+Se debe generar una variable que obtenga todos los libros de la biblioteca. 
+
+*/
+
+col:= b verTodosLosLibros       //ahora ya se tienen las colecciones d libros de Biblioteca. Se puede iterar sobre
+1 to: col: size do:[:i|((col at: i) verEstado  = false)
+    ifTrue:[(col at: i) verTitulo) inspect]
+
+l := b buscarLibro : 1111 //el número de ISBN debe existir en la implementación 

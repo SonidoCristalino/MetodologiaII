@@ -1,0 +1,202 @@
+Clase IV 
+Programación extrema (2da parte): 
+
+El cliente esta en TODO el proceso, y participación actica (es lo que diferencia
+esta metodología con respecto a otra). En otras metodologías el cliente
+es pasivo, porque no tiene incidencia en los desarrollos. 
+
+Historias de usuario: escrita por el cliente, y los desarrollos. Ademas asigna
+la prioridad porque es el que más entiende. 
+
+Planificación: el cliente negocia lo que se entrega porque entiende lo que es la
+funcionalidad. Y sabe cuándo está completo el dsarrollo porque sólo él sabe de
+lo funcional. 
+¡Los roles son muy importantes! Las tareas que requiere cada uno de las partes
+del equipo. 
+
+Estandares de código: se tiene que mantener fácil para realizar refactorización.
+Las convenciones ayudan a entenderse mjor entre todo el desarrollo del equipo. 
+
+Implementación dirigida por prubas: característica muyu importante en XP, en
+otras meto se prueban todo al final, en XP se desarrollan los test al comienzo.
+Se define antes de codificar cuáles son los resultados que se quiere llegar. 
+Esta forma de desarrollar los test se dicen que los test dirigen el proceso
+(implementación dirigida por pruebas). Se apuntan a esos desarrollos. 
+A cada modificación de la funcionalidad, también se requiere que se modifiquen
+los test, va de la mano. 
+
+Programación en pareja: dos personas en la MISMA computadora, lo que se apunta
+son a códigos más eficientes, se detectan los errores antes de que surgan, se
+a la implementación mayor calidad en el código. 
+Ventajas: errores se detectan antes, los diseños mejores y código más corto, el
+equipo resuelve más rápido, se termina con más personas conociendo el código a
+detalle. A diferencia de las metodologías anterires donde cada programador sólo
+hacía una parte del sistema. 
+Otra Ventaja es que las personas aprenden a trabajar en grupo, es más dinamico,
+     las personas disfrutan más de su trabajo. 
+
+Integración secuencial: todos tienen que trabajar con la última versión. Todo lo
+que se sube tiene que estar probado y todo tiene que estar funcionando
+correctamente. 
+Propiedad colectiva: animar a todos a proponer nuevas ideas. 
+
+Ritmo constante: beneficioso mantner un ritmo en conjunto. 
+Se define cuantas historias entras en una realease. todo esto para no
+sobrecargar al equipo, para tner un poco de estimar los tiempo de entregas;
+cuando se encuentra un problema en la estimación, se alarga la entrega. No se
+hace hors extra ni se llama a nadie mas.
+
+Características son importantes: 
+    - Simplicidad: no hacer más de lo que se tiene que hacer
+    - Comunicación: el cara a cara.
+    - Retroalimentación: retro, mejorar el equipo para procesos futuros
+    - Coraje: responsabilidad en las tareas que se asumen. 
+
+Roles (importantes): 
+    - Cliente: responsable de conducir el proyecto, lo define y también sus
+      objetivos. Tiene que saber determinar el valor d las historias de usuario
+      en el sistema. El cliente representa al usuario final y a los intereses
+      económicos de la emprsa. Ver bien los Derechos y sus responsabilidades. 
+
+    - Programador: responsablidad de tomar decisiones técnicas. Estiman las
+    historias de usuario. Ver bien los Derechos y responsabiidades. 
+
+    - Encargado de pruebas (tester): Ayuda al cliente para escribir los test de
+    las historias de usuario, informa al equipo de ello. 
+
+    - Encargado de seguimiento (tracker): Hace el seguimiento de acuerdo de la
+    planifiicación. Pregunta uno por uno a los usuarios qué onda con las cosas
+    con las que se comprometieron. La velocidad ayuda a mejorar el 
+
+    - Entrenador (coach) hace que cada persona dé lo mejor de sí para la
+    empresa. No se entrena para un trbajo específico, lo que hace es prerpara al
+    equipo en las prácticas. Se entrena en la metodología que se irá a aceptar. 
+
+    - Gestor (big boss) El big boss es el gerente del proyecto. Debe tener una
+    idea generalizada del proyecto y esar relacionado con su estado. 
+
+-------------
+Segunda parte 
+-------------
+
+Ambiente de trabajo: Pharo. 
+
+Clase:                  Libro
+Subclase de:            Object
+Variable de instancia:  ISBN, titulo, autor, editorial, estado, dni,
+    Cómo se debe definir en smalltalk: 'ISBN titulo autor editorial estado dni'
+
+Método de Clase:
+---------------
+>>crearlibroISBN: unIsbn, tit:unTit, aut:unAut edit: unaEditorial
+    "retorna una instancia de libro inicializada" (las comillas se consideran
+            comentarios dentro de Smalltalk)
+- Se deja un renglón
+^(self new) iniLibroIsbn:unIsbn tit:unTit aut:unAut edit:unaEdit
+
+Métodos de instancia: 
+-------------------
+>> iniLibroIsbn: unIsbn tit:unTit aut:unAut edit:unaEditorial
+    "Inicializa una instancia de libro"
+
+isbn:=unIsbn.
+titulo:=unTit.
+autor:=unAut.
+editorial:=unaEdit.
+estado:='false'.
+dni:=0.
+
+- Se deja seis renglones por la cantidad de variables. 
+-
+-
+-
+-
+-
+-
+
+>>verIsbn
+"Retorna el isbn del libro"
+- dejamos un renglon
+^ isbn.
+
+>>modifiIsbn:unIsbn
+"Modifica el isbn del libro"
+- dejamos un renglon
+^ isbn:=unIsbn.
+
+>>verEstado
+"Retorna el estado del libro"
+- dejamos un renglon
+^ estado.
+
+>>modiEstado
+"Modifica el estado del libro"
+- dejamos un renglon
+estado:= estado not
+
+Cómo se codifica la Aplicación: 
+| l1 l2 i t a e     |
+
+i:=Promter prompt:'Ingrese un numero' default:''
+t:=Promter prompt:'Ingrese un título' default:''
+a:=Promter prompt:'Ingrese un autor' default:''
+e:=Promter prompt:'Ingrese una editorial' default:''
+l1:=Libro crearLibroIsbn:i tit:t aut:a edit:e
+
+i:=Promter prompt:'Ingrese un numero' default:''
+t:=Promter prompt:'Ingrese un título' default:''
+a:=Promter prompt:'Ingrese un autor' default:''
+e:=Promter prompt:'Ingrese una editorial' default:''
+l2:=Libro crearLibroIsbn:i tit:t aut:a edit:e
+
+(l1 verAutor = l2 verAutor) iftrue:[
+    (l1 verIsbn < l2 verIsbn) iftrue:[ ^ l1 verTitulo]
+                              iffalse:[ ^ l2 verTitulo]
+                iffalse:[^ 'no tienen el mismo autor']
+
+
+NOTAS:
+-----
+
+Las lecturas e impresiones se hacen en la aplicación, NO en la declaración de
+objetos. Si se tiene que leer desde la aplicación, se debe pasar al objeto para
+que se asigne. 
+Cuando se crea un libro, el estado != prestado, por eso se genera como
+No-prestado y lo mismo con el DNI. Estados dos variables se asignan a la hora de
+crear. 
+
+Metodo de clase: Crear llama a Ini, el ojeto lo crea vacía y el ini asigna ¿por
+qué? ¿por qué no se asigna directamente en Crear? porque no se puede manipular
+directamnte variables de instancia. Se tiene que hacer en un método de
+instancia. 
+
+Ocultamiento: no se pude acceder los atributos del objeto directamente dsde la
+aplicación; sino que se hace mediante los mensajes que entiende el objeto. 
+
+smalltalk express es más simple, tiene menos ventanas, pero el tema es que corre
+. Pharo es para 
+l1:= (el que entiende el mensajes es la clase libro)
+
+La finalidad de la aplicaci es retornar o mostrar el título del libro con menor
+sbn si los libros tienen el mismo autor. 
+
+^(self new) iniLibroIsbn:unIsbn tit:unTit aut:unAut edit:unaEdit
+
+self: Hace mención a la clase Libro, a quien recibe el mesaje en la aplicación:
+    l1 := Libro
+
+estado:= estado not
+Devuelve el estado contrario que le llega. 
+
+No se debería poder modificar un ISBN, si se quiere modificar, el objeto debería
+eliminarse y luego volver a crear un nuevo libro con el nuevo ISBN. 
+Pero esto se deja sin efecto, por comodidad. 
+
+En el pharo en vez de la siguiente linea se debe realizar: 
+    i:=Promter prompt:'Ingrese un numero' default:''
+Se debe cambiar:
+    i:=UIManager default request:'Ingrese un numero' 
+
+Sistem Browser -> buscar object dentro de ProtoObject  (se busca por el find
+        class)
+Esto será necesario para poder declarar que Libro será subclase de Object

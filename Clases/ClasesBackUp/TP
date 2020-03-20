@@ -1,0 +1,23 @@
+
+Preguntas: 
+---------
+    - Se tiene creado las canchas, lo que se instancian son las reservas. 
+    - Tener instanciado a los socios, QUE NO agregue los socios. 
+
+    - Instanciar reservas: 
+        - las canchas ya están instanciadas. Se tiene instanciadas 5 canchas. Respuesta: SI 
+        - Los datos son: dni de la persona, el tamaño de la cancha y el turno 
+        - el precio de la cancha está establecido dependiendo del tamaño, y se multiplica por el turno, que van a ser de
+        tipo int. Respuesta: SI 
+
+    - Cuando se quiere hacer una reserva se deben preguntar dos cosas: 
+        - ¿es socio? 
+        - ¿está generado la reserva ? 
+
+    Las canchas van a ser de un solo tamaño, la primera que esté desocupada, entonces se le da esa. 
+
+    Todas las canchas que no están ocupadas ---> select, reject, detect, diccionario. 
+    Mostrar las cosas en forma ordenada. 
+    Traer el nombre de la persona que lo ocupó en forma ordenada. 
+
+

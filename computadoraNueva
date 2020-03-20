@@ -1,0 +1,36 @@
+
+password root:
+    *   Usuario:    emiliano
+    *   Contraseña: Memos397781
+    *   Root: Memos42565845
+
+Luego de re-instalar LARBS, hubieron varios errores (se instalo volviendo a ejectuar el script mediante fuerza bruta):
+
+	* El problema del archivo .profile. El archivo estaba seteado como el .xprofile (el cual ejecutaba directamente un monton de comandos sin
+	* haber leido previamente otros comandos.
+		Lo que se hizo fue copiar el archivo de la computadora de la facultad (.profile) y ponerla en la computadora nueva.
+	* Otro problema es que ranger no previsualizaba las imagenes. Se instalo ueberzug, como se indica en la siguiente pagina
+	* https://github.com/seebye/ueberzug.
+	* Se desconfiguro el teclado. (se configur� solo)
+	* Hay un problema con "yay" por lo que se hace lo que se indica:
+		https://github.com/Jguer/yay/issues/1087
+	* Hay que desabilitar el touchpad (esta en vimwiki).
+	* Hay que volver a poner como fondo de pantalla en el .xprofile o alg�n archivo de ellos que permita levantar el comando.
+		Según la computadora de la facultad está en el archivo .xinitrc
+		El problema está en que no existe el programa xwallpaper, se
+		instala siguiendo las instrucciones de
+		https://github.com/stoeckmann/xwallpaper
+	* Se tiene que establecer que el Capslock se vuelva escape.
+		La tecla mapper ahora es ",", o sea que hay que tocar ,+c para poder compilar el documento. Todo esto está en ~/.config/nvim/init.vim
+		También se puede compilar desde Ranger, posicionandose sobre un archivo .tex y apretando ML.
+	* Para la problematica del vimwiki (que ahora se accede a travésde Mod+v) se empleó lo que dice la siguiente página:
+		https://osxdaily.com/2017/05/12/change-all-file-extensions-command-line/
+		Ya que antes se guardaban los archivos con la extensión .wiki y ahora se hace con la extensión .md (de markdown).
+		Ya se modifico para que el maper sea el espacio y no "," de esta forma se sigue manteniendo la configuracion anterior.
+
+	* Se tienen que instalar nuevas fuentes, porque la consolta no acepta determinados caracteres (¡¡NO FUE ESE EL PROBLEMA!!!)
+		Como ayuda de la terminarl st: https://wiki.archlinux.org/index.php/St#Font
+		Sobre el final se dice cómo instalar fuentes (es para otras terminales): https://bbs.archlinux.org/viewtopic.php?id=166531
+	- Tener en cuenta que en la compu de la facultad, está en .inputrc la manera de que la terminal responda a los controles de vim.
+
+
